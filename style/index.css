@@ -159,7 +159,7 @@ section{
 
 .cursetitle{
     position: absolute;
-    margin: -304px 0px 0px 1150px;
+    margin: -304px 0px 0px 1450px;
     text-align: right;
 }
 
@@ -277,4 +277,3 @@ footer img{
     z-index: 1;
     justify-content: right;
 }
-
