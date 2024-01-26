@@ -1,0 +1,279 @@
+body{
+    background: linear-gradient(0deg, rgb(82, 37, 0), rgb(0, 0, 0));
+    color: white;
+    font-family:cursive;
+    margin:8px;
+    width: 100%;
+    height: 100vw;
+
+}
+
+/*------------------BARRA DE NAVEGAÇÃO SUPERIOR ANIMADA:------------------------------*/
+.activedoc{
+    text-shadow: 0px 0px 100px rgb(255, 255, 255);
+    text-transform:uppercase;
+    color: #f39c12;
+    font-size: 25px;
+}
+
+ul{
+    display: flex;
+    justify-content:space-around;
+    margin: 0px 53px 0px 0px;
+    list-style-type: none;
+}
+
+ul li{
+    position:relative;
+}
+
+ul li::before,
+ul li::after{
+    position: absolute;
+    content:'';
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: 0.3s all ease-in-out;
+}
+
+ul li::before{
+    top: 0;
+    left: 0;
+}
+
+ul li::after{
+    bottom: 0;
+    right: 0;
+}
+
+ul li.active::before,
+ul li:hover::before{
+    right: 0;
+    left: auto;
+    width: 100%;
+    background-color: #f39c12;
+}
+
+ul li.active::after,
+ul li:hover::after{
+    right: auto;
+    left: 0;
+    width: 100%;
+    background-color: #f39c12;
+}
+
+ul li a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    transition: 0.5s all ease-in-out;
+
+}
+
+ul li.active a,
+ul li:hover a{
+    color: #f39c12;
+    text-shadow: 0px 0px 100px rgb(255, 255, 255);
+    opacity: 60%;
+}
+/*-----------------------CENTRO DO PROJETO-------------------------------*/
+header img{
+    width: 200px;
+    height: 200px;
+    border: 10px double rgb(255, 115, 0);
+    border-radius: 30px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    transition: 1s;
+}
+
+.center img:hover{
+    border: 10px double rgb(255, 202, 104);
+    transition: 1s;
+    box-shadow: 0px 0px 100px #555555;
+}
+
+.self-info{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin: 0px 550px 0px 550px;
+}
+
+header h1{
+    font-size: 45px;
+    margin: 0px 0px 0px 0px;
+    transition: .5s;
+    cursor: default;
+}
+
+header h4{
+    font-size: 25px;
+    margin: 10px 50px 60px 50px;
+    transition: 0.5s;
+    cursor:default;
+}
+
+.name:hover{
+    color: rgb(255, 115, 0);
+    border-radius: 1000px;
+    text-shadow: 0px 10px 100px rgb(255, 255, 255);
+}
+
+.position:hover{
+    color: rgb(255, 115, 0);
+    border-radius: 1000px;
+    text-shadow: 0px 0px 100px rgb(255, 255, 255);
+}
+
+.center{
+    text-align: center;
+}
+
+/*-----------------------TEXTOS E SUBTITULOS*---------------------*/
+section{
+    margin-right: 20px;
+}
+
+.abouttitle{
+    text-align: center;
+}
+
+.about{
+    text-align: justify;
+    margin-bottom: 20px;
+    border-bottom: solid rgb(255, 115, 0) 1px;
+    padding-bottom: 50px;
+}
+
+.traintitle{
+    text-align: left;
+    margin: 0px 1050px 0px 180px;
+}
+
+.train{
+    max-width:500px;      
+    margin: 10px;     
+}
+
+.cursetitle{
+    position: absolute;
+    margin: -304px 0px 0px 1450px;
+    text-align: right;
+}
+
+.curse{
+    text-align: justify;
+    max-width: 500px;
+    float: right;
+    position: relative;
+    margin: -255px 30px 0px 0px;
+}
+
+h2{ 
+    color: rgb(255, 115, 0);
+    transition: .5s;
+    cursor: default;
+}
+
+h2:hover{
+    color: rgb(255, 202, 104);
+}
+
+main{
+    margin: 20px;
+    text-align: justify;
+}
+
+/*------------------RODAPÉ DA PÁGINA COM AS LOGOS------------------------------*/
+footer{
+    display: flex;
+    justify-content: center;
+
+}
+
+footer img{
+    width:55px;
+    height:55px;
+}
+.yout{
+    margin: 50px 200px 0px 800px;
+    padding: 0;
+    position: absolute;
+    opacity: 1;
+    z-index:1;
+    transition: .4s;
+    border-radius: 100px;   
+}
+
+.youtcollor{
+    margin: 50px 200px 0px 800px;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 100px;
+
+}
+
+.yout:hover{
+    opacity: 0;
+    border-radius: 100px;
+    box-shadow: 0px 0px 100px rgb(244, 20, 20);
+}
+.insta{
+    margin: 50px 800px 0px 200px;
+    position: absolute;
+    opacity: 1;
+    z-index:1;
+    transition: .4s;
+    border-radius: 100px;
+}
+.instacollor{
+    margin: 50px 800px 0px 200px;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 100px;
+}
+.insta:hover {
+    opacity:0;
+    border-radius: 100px;
+    box-shadow: 0px 0px 100px rgb(245, 55, 226);
+}
+.twt{
+    margin: 50px 800px 0px 800px;
+    padding: 0;
+    opacity: 1;
+    position: absolute;
+    z-index:1;
+    transition: .4s;
+    border-radius: 100px;
+}
+
+.twtcollor{
+    margin: 50px 800px 0px 800px;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 100px;
+
+}
+
+.twt:hover{
+        opacity: 0;
+        border-radius: 100px;
+        box-shadow: 0px 0px 100px rgb(21, 162, 249);
+}
+
+/* ---------------------imagem do zap fixada---------------------------- */
+.zap img{
+    width: 70px;
+    height: 70px;
+    position: relative;
+    margin: -409px 0px 1000px 0px;
+    opacity: 60%;
+}
+
+.zap{
+    position: fixed;
+    z-index: 1;
+    justify-content: right;
+}
