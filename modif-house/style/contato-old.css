@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     background: linear-gradient(0deg, rgb(82, 37, 0), rgb(0, 0, 0));
     color: white;
@@ -7,6 +11,7 @@ body{
 
 }
 
+/* ------------------------barra de navegação interativa----------------------------- */
 .activedoc{
     text-shadow: 0px 0px 100px rgb(255, 255, 255);
     text-transform:uppercase;
@@ -17,7 +22,7 @@ body{
 ul{
     display: flex;
     justify-content:space-around;
-    margin: 0px 53px 0px 0px;
+    margin: 20px 53px 0px 0px;
     list-style-type: none;
 }
 
@@ -76,3 +81,5 @@ ul li:hover a{
     text-shadow: 0px 0px 100px rgb(255, 255, 255);
     opacity: 60%;
 }
+
+/* -------------------------------------------------------------- */
