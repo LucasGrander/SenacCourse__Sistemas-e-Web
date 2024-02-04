@@ -7,17 +7,28 @@ body{
 
 }
 
+body{
+    background: linear-gradient(0deg, rgb(82, 37, 0), rgb(0, 0, 0));
+    color: white;
+    font-family:cursive;
+    margin:0px;
+    padding: 0px;
+    width: 100%;
+
+}
+
+/*------------------BARRA DE NAVEGAÇÃO SUPERIOR ANIMADA:------------------------------*/
 .activedoc{
-    text-shadow: 0px 0px 100px rgb(255, 255, 255);
-    text-transform:uppercase;
+    text-shadow: 0px 0px 10px rgb(255, 145, 0);
     color: #f39c12;
     font-size: 25px;
 }
 
 ul{
+    font-size: 25px;
     display: flex;
-    justify-content:space-around;
-    margin: 0px 53px 0px 0px;
+    justify-content:center;
+    gap: 80px;
     list-style-type: none;
 }
 
@@ -30,9 +41,9 @@ ul li::after{
     position: absolute;
     content:'';
     width: 0;
-    height: 2px;
+    height: 1px;
     background-color: #ffffff;
-    transition: 0.3s all ease-in-out;
+    transition: 0.4s all ease-in-out;
 }
 
 ul li::before{
@@ -65,8 +76,8 @@ ul li a{
     text-decoration: none;
     cursor: pointer;
     color: #fff;
-    font-size: 20px;
-    transition: 0.5s all ease-in-out;
+    font-size: 25px;
+    transition: 0.4s all ease-in-out;
 
 }
 
