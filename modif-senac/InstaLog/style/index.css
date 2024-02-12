@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
 body{
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    font-family: 'Blinker';
+    /* background: linear-gradient(45deg, rgb(5, 10, 230), rgb(88, 81, 216), rgb(131, 58, 180), rgb(193, 53, 132), rgb(225, 48, 108), red, #f76241, orange, rgb(225, 220, 128) ); */
 }
 
 .container{
@@ -26,15 +30,22 @@ body{
 .container .content .left{
     width: 50%;
     display: flex;
-    margin-right: 5px;
+    margin-right: 25px;
 }
 
 .container .content .left img{
-    width: 380px;
+    width: 390px;
 }
 
 .container .content .rightbottom{
-    height: 65%;
+    height: 87%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.container .content .rightbottom .right{
+    height: 63%;
+    width: 400px;
     display: flex;
     flex-direction: column;
     border: solid #ebebeb 1px;
@@ -50,6 +61,9 @@ body{
     font-weight: 1000;
     margin-top: 0;
     margin-bottom: 15px;
+    background: linear-gradient(55deg, rgb(88, 81, 216), rgb(131, 58, 180), rgb(193, 53, 132), orange, rgb(225, 220, 128));
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .container .content .rightbottom .right .inputbox{
@@ -82,8 +96,8 @@ body{
     margin-top: 15px;
 }
 
-.container .content .rightbottom .right .submit a {
-    width: 100%;
+.container .content .rightbottom .right .submit a{
+    width: 83%;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -92,11 +106,11 @@ body{
 }
 
 .container .content .rightbottom .right .submit button{
-    width: 83%;
+    width: 100%;
     align-items: center;
     justify-content: center;
     height: 40px;
-    background-color: rgb(68, 153, 233);
+    background-color: #0095f6;
     letter-spacing: 1px;
     text-transform: capitalize;
     border-radius: 5px;
@@ -105,6 +119,11 @@ body{
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
+}
+
+.container .content .rightbottom .right .submit button:hover{
+    background: #2a79a6;
+    transition: .3s;
 }
 
 .container .content .rightbottom .right .line{
@@ -141,7 +160,7 @@ body{
 }
 
 .container .content .rightbottom .right .faceforgot .face a{
-    width: 100%;
+    width: 83%;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -151,11 +170,11 @@ body{
 
 
 .container .content .rightbottom .right .faceforgot .face button{
-    width: 83%;
+    width: 100%;
     align-items: center;
     justify-content: center;
     height: 40px;
-    background-color: rgb(68, 153, 233);
+    background-color: #0095f6;
     letter-spacing: 1px;
     border-radius: 5px;
     border: none;
@@ -163,17 +182,98 @@ body{
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
+.container .content .rightbottom .right .faceforgot .face button:hover{
+    background: #2a79a6;
+    transition: .3s;
+}
 .container .content .rightbottom .right .faceforgot .face button span{
     position: absolute;
-    left: 130px;
+    left: 123px;
     top: 13px;
 }
 
 .container .content .rightbottom .right .faceforgot .face img{
     width: 30px;
     position: absolute;
-    left: 90px;
+    left: 86px;
     cursor: pointer;
+}
+
+.container .content .rightbottom .right .faceforgot .forgot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 25px;
+
+}
+
+.container .content .rightbottom .right .faceforgot .forgot a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(0, 59, 131);
+    height: 28px;
+}
+
+.container .content .rightbottom .right .faceforgot .forgot a:hover{
+    text-decoration: underline;
+}
+
+.container .content .rightbottom .bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    border: solid #ebebeb 1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.164);
+    border-radius: 10px;
+    height: 70px;
+    font-size: 17px;
+}
+
+.container .content .rightbottom .bottom span a{
+    text-decoration: none;
+    color: #0095f6;
+    font-weight: 600;
+    letter-spacing: .5px;
+    margin-left: 3px;
+}
+
+.container .content .rightbottom .bottom span a:hover{
+    text-decoration: underline;
+}
+
+.container .content .rightbottom .app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.container .content .rightbottom .app span{
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.container .content .rightbottom .app .appIMG{
+    display: flex;
+    gap: 40px;
+}
+
+.container .content .rightbottom .app .appIMG img{
+    width: 150px;
+    height: 50px;
+}
+
+.container .content .rightbottom .app .appIMG img:hover{
+    box-shadow: 0 0 10px black;
 }

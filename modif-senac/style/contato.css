@@ -53,7 +53,7 @@ body img{
 }
 
 .contact .content p{
-        font-size:20px ;
+        font-size:20px;
 }
 
 .container{
@@ -134,6 +134,7 @@ body img{
 }
 
 .container .contactform .inputbox{
+        position: relative;
         width: 100%;
         margin-top: 10px;
 }
@@ -153,7 +154,7 @@ body img{
 
 .container .contactform .inputbox span{
         position:absolute;
-        left: 57%;
+        left: 0px;
         padding: 5px 0;
         font-size: 16px;
         margin: 10px 0px;
@@ -194,7 +195,65 @@ body img{
         color: black;
 }
 
-@media(max-width: 800px){
+@media(max-width: 1550px){
+        body img{
+                width: 100vw;
+                height: 100%;
+        }
+
+        .contact .content p{
+                font-size:18px;
+                margin-top: -15px;
+        }
+
+        .container{
+                margin-top: 170px;
+        }
+}
+
+@media(max-width: 1300px){
+        body img{
+                width: 100vw;
+                height: 100%;
+        }
+
+        .container .contactinfo .box{
+                margin:0 50px 0 150px ;
+        }
+        .container .contactinfo .box h3,
+        .container .contactinfo .box p{
+                font-size: 18px;
+                margin-right: 100px;
+        }
+}
+
+@media(max-width: 1160px){
+        body img{
+                width: 100vw;
+                height: 100%;
+        }
+
+        .container .contactinfo .box{
+                margin:0 100px 0 50px ;
+        }
+}
+
+@media(min-width: 800px) and (max-width: 1060px){
+        body img{
+                width: 100vw;
+                height: 100%;
+        }
+
+        .contact .content{
+                padding: 0 15px;
+        }
+
+        .container .contactinfo .box{
+                margin: 0px 10px 0 0px;
+        }
+}
+
+@media(max-width: 750px){
         .container{
                 flex-direction: column;
                 position: relative;
