@@ -1,0 +1,128 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body{
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: solid 2px #ccc;
+    box-shadow: rgba(255, 255, 255, 0.338) 10px 10px 10px;
+    height: 50%;
+    width: 35%;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.container h1{
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 30px;
+    
+}
+
+.container .content{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.container #areaGEN{
+    color: black;
+    text-align: center;
+    background-color: #ccc;
+    border-radius: 10px;
+    background-color: #ccc;
+    width: 80%;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.container #areaGEN2{
+    color: black;
+    text-align: center;
+    background-color: #ccc;
+    border-radius: 10px;
+    background-color: #ccc;
+    width: 80%;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.container #areaGEN3{
+    color: black;
+    text-align: center;
+    background-color: #ccc;
+    border-radius: 10px;
+    background-color: #ccc;
+    width: 80%;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.buttons #btnGEN,
+.buttons #btnRESET{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons button{
+    width: 65%;
+    height: 30px;
+    color: black;
+    font-weight: 600;
+    background-color: #ccc;
+    outline: none;
+    border: none;
+}
+
+.buttons button:hover{
+    background-color: rgb(77, 77, 77);
+    color: whitesmoke;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: rgba(255, 255, 255, 0.638) 3px 3px 1px;
+}
