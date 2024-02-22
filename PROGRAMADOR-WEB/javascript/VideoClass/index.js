@@ -264,6 +264,7 @@ analytc.onclick = function(){
 //                           for example: condition ? "codeIfTrue" : "codeIfFalse";
 //                                        age >=18  ?  "You are old!" : "You are new!"
 
+// eu dei 2 variáveis chamada saudacao1 e saudacao2, onde, o valor "true" delas indica a ação... Caso contrário "false", executará a outra variável.
 
 document.getElementById("btnhora").onclick = function(){
     let hora = document.getElementById("inputhora").value;
@@ -274,4 +275,65 @@ document.getElementById("btnhora").onclick = function(){
     let saudacao1 = hora == 0 ? "Digite um horário" : saudacao;
     let saudacao2 = hora < 0 ? "Não pode ser negativo!" : saudacao1;
     cump.textContent = `${saudacao, saudacao1, saudacao2}`;
+}
+
+
+// We can do same thing thinking in a shop giving a % discount of the price
+
+let clientINPT = document.getElementById("desc");
+let calcDesc = document.getElementById("descBTN");
+let descRES = document.getElementById("descRES");
+
+calcDesc.onclick = function(){
+
+    let valueProd = clientINPT.value;
+    valueProd = Number(valueProd);
+
+    if(valueProd <= 0){
+        descRES.textContent = `Insira um valor correto!`;
+    }
+    else if(valueProd >= 0 && valueProd < 10){
+        const descount = valueProd * 0/100;
+        const valFINAL = valueProd - descount;
+        const percent = ((100 ) - valFINAL * 100 / valueProd);
+        descRES.textContent = `O desconto sob os R$${valueProd} foi de ${percent}% || VALOR À PAGAR: R$ ${valFINAL}`;
+    }
+    else if(valueProd >= 10 && valueProd < 100){
+        const descount = valueProd * 10/100;
+        const valFINAL = valueProd - descount;
+        const percent = ((100 ) - valFINAL * 100 / valueProd);
+        descRES.textContent = `O desconto sob os R$${valueProd} foi de ${percent}% || VALOR À PAGAR: R$ ${valFINAL}`;
+    }
+    else if(valueProd >= 100 && valueProd < 200){
+        const descount = valueProd * 20/100;
+        const valFINAL = valueProd - descount;
+        const percent = ((100 ) - valFINAL * 100 / valueProd);
+        descRES.textContent = `O desconto sob os R$${valueProd} foi de ${percent}% || VALOR À PAGAR: R$ ${valFINAL}`;
+    }
+    else if(valueProd >= 200 && valueProd < 300){
+        const descount = valueProd * 30/100;
+        const valFINAL = valueProd - descount;
+        const percent = ((100 ) - valFINAL * 100 / valueProd);
+        descRES.textContent = `O desconto sob os R$${valueProd} foi de ${percent}% || VALOR À PAGAR: R$ ${valFINAL}`;
+    }
+    else{
+        const descount = valueProd * 40/100;
+        const valFINAL = valueProd - descount;
+        const percent = ((100 ) - valFINAL * 100 / valueProd);
+        descRES.textContent = `O desconto sob os R$${valueProd} foi de ${percent}% || VALOR À PAGAR: R$ ${valFINAL}`;
+    }
+}
+
+
+// using "switch" for trade to many else if
+
+let day = 2;
+
+switch(day){
+    case 1:
+        console.log(`Segunda-feira`);
+        break;
+    case 2:
+        console.log(`Terça-feira`);
+        break;
 }
