@@ -290,7 +290,7 @@ calcDesc.onclick = function(){
     valueProd = Number(valueProd);
 
     if(valueProd <= 0){
-        descRES.textContent = `Insira um valor correto!`;
+        descRES.textContent = `O valor não pode ser nulo ou abaixo de R$0.00`;
     }
     else if(valueProd >= 0 && valueProd < 10){
         const descount = valueProd * 0/100;
@@ -321,13 +321,13 @@ calcDesc.onclick = function(){
         const valFINAL = valueProd - descount;
         const percent = ((100 ) - valFINAL * 100 / valueProd);
         descRES.textContent = `O desconto sob os R$${valueProd} foi de ${percent}% || VALOR À PAGAR: R$ ${valFINAL}`;
-    }
-}
+    };
+};
 
 
 // using "switch" for trade to many else if
 
-let day = 2;
+let day = 1;
 
 switch(day){
     case 1:
@@ -336,4 +336,22 @@ switch(day){
     case 2:
         console.log(`Terça-feira`);
         break;
-}
+    case 3:
+        console.log(`Quarta-feira`);
+        break;
+    case 4:
+        console.log(`Quinta-feira`);
+        break;
+    case 5:
+        console.log(`Sexta-feira`);
+        break;
+    case 6:
+        console.log(`Sábado`);
+        break;
+    case 7:
+        console.log(`Domingo`);
+        break;
+    default:
+        console.log(`${day}, não é um dia da semana!`);
+        break;
+};
