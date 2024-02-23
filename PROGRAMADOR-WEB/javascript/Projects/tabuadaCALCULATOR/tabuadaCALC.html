@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada Calculator</title>
+    <link rel="stylesheet" href="tabuadaCALC.css">
+</head>
+
+<body>
+    <div class="container">
+    <h1 id="tittle">Tabuada</h1>
+        <div class="content">
+
+
+            <!-- CONTROLE DA SELECT OPTION -->
+            <div class="selectBOX">
+                <select id="selectNUM">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                <div>
+                    <button id="calculatorBTN">Calcular</button>
+                </div>
+
+            </div>
+
+
+            
+            <div id="operatorACTION">
+                <!-- VALOR ESCOLHIDO POR QUEM USAR O PROGRAMA (escolhe pela select option) -->
+                <div class="choosedNUM">
+                    <p id="num1">0</p>
+                    <p id="num2">0</p>
+                    <p id="num3">0</p>
+                    <p id="num4">0</p>
+                    <p id="num5">0</p>
+                    <p id="num6">0</p>
+                    <p id="num7">0</p>
+                    <p id="num8">0</p>
+                    <p id="num9">0</p>
+                    <p id="num10">0</p>
+                </div>
+
+
+                <!-- SINAL DE MULTIPLICAÇÃO TABUADA -->
+                <div class="multplicatorSIGN">
+                    <p>x</p>
+                    <p>x</p>
+                    <p>x</p>
+                    <p>x</p>
+                    <p>x</p>
+                    <p>x</p>
+                    <p>x</p>
+                    <p>x</p>
+                    <p>x</p>
+                    <p>x</p>
+                </div>
+
+
+                <!-- NÚMEROS FIXOS DA TABUADA (1 à 10) -->
+                <div class="multplicatorNUM">
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                    <p>6</p>
+                    <p>7</p>
+                    <p>8</p>
+                    <p>9</p>
+                    <p>10</p>
+                </div>
+
+
+                <!-- SINAL DE IGUAL TABUADA -->
+                <div class="equalSIGN">
+                    <p>=</p>
+                    <p>=</p>
+                    <p>=</p>
+                    <p>=</p>
+                    <p>=</p>
+                    <p>=</p>
+                    <p>=</p>
+                    <p>=</p>
+                    <p>=</p>
+                    <p>=</p>
+                </div>
+
+                <!-- RESULTADO DA CONTA -->
+                <div class="multplicatorRES">
+                    <p id="multRES1">--</p>
+                    <p id="multRES2">--</p>
+                    <p id="multRES3">--</p>
+                    <p id="multRES4">--</p>
+                    <p id="multRES5">--</p>
+                    <p id="multRES6">--</p>
+                    <p id="multRES7">--</p>
+                    <p id="multRES8">--</p>
+                    <p id="multRES9">--</p>
+                    <p id="multRES10">--</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="tabuadaCALC.js"></script>
+
+</html>
