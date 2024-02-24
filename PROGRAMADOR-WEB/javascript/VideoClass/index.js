@@ -326,7 +326,7 @@ calcDesc.onclick = function(){
 
 
 // using "switch" for trade to many else if
-
+// days of the week
 let day = 1;
 
 switch(day){
@@ -355,3 +355,115 @@ switch(day){
         console.log(`${day}, não é um dia da semana!`);
         break;
 };
+
+// calculate media of grades
+
+let testScore = 71;
+let letterGrade;
+
+switch(true){
+    case testScore >= 90:
+        letterGrade = "A";
+        break;
+    case testScore >= 80:
+        letterGrade = "B";
+        break;
+    case testScore >= 70:
+        letterGrade = "C";
+        break;
+    case testScore >= 60:
+        letterGrade = "D";
+        break;
+    default:
+        letterGrade = "F";
+
+}
+console.log(`Your Grade is ${letterGrade} !!!`)
+
+//String methods = manipulate text
+
+let myname = "Lucas";
+
+console.log(`myname.CharAt(0) = ` + myname.charAt(0))
+console.log(`myname.indexOf("s") = ` + myname.indexOf("s"))
+console.log(`myname.lastIndexOf("s") = ` + myname.lastIndexOf("s"))
+console.log(`myname.lenght = ` + myname.length);
+console.log(`myname.trim = ` + myname.trim(myname));
+console.log(`myname.toUpperCase = ` + myname.toUpperCase(myname));
+console.log(`myname.toLowerCase = ` + myname.toLowerCase(myname));
+console.log(`myname.repeat(3) = ` + myname.repeat(3));
+console.log(`myname.startsWith("L") = ` + myname.startsWith("L"));
+console.log(`myname.endsWith(A) = ` + myname.endsWith("A"));
+console.log(`myname.includes(Z) = ` + myname.includes("Z"));
+console.log(`myname.replaceAll("s", "Oi") = ` + myname.replaceAll("s", "Oi"));
+console.log(`myname.padStart(15, "0") = ` + myname.padStart(15, "0"));
+console.log(`myname.padEnd(15, "0") = ` + myname.padEnd(15, "0"));
+
+
+// now ill do a STRING SLICING, create a sub string into a string
+
+const COMPLETEname = "Lucas Grander";
+let NAMEfirst = COMPLETEname.slice(0, 5)
+let NAMElast = COMPLETEname.slice(6, 13)
+let firstCHAR = COMPLETEname.slice(0, 1);
+let lastCHAR = COMPLETEname.slice(-1);
+console.log(NAMEfirst);
+console.log(NAMElast);
+console.log(firstCHAR);
+console.log(lastCHAR);
+
+// program to catch first name or last name, designed by the user ---------------->>
+
+let catchNAME = COMPLETEname.slice(0, COMPLETEname.indexOf(" "));
+console.log(catchNAME)
+
+let catchApelid = COMPLETEname.slice(COMPLETEname.indexOf(" ") + 1)
+ console.log(catchApelid)
+
+ const email = "lucasgrander@gmail.com";
+ let usernameEmail = email.slice(0, email.indexOf("@"));
+ let emailTYPE = email.slice(email.indexOf("@"));
+ console.log(usernameEmail)
+ console.log(emailTYPE)
+
+ // method Chaining --->> Call a metod after calls another
+//                   --->> Using one line of code
+
+
+// without the method
+// document.getElementById("chainingBTN").onclick = function(){
+// var chainingUSER = document.getElementById("chainingINPUT").value;
+// chainingUSER = chainingUSER.trim();
+
+// let upper = chainingUSER.charAt(0);
+// upper = upper.toUpperCase();
+
+// let extra = chainingUSER.slice(1);
+// let lower = extra.toLowerCase();
+
+// userCAPITALIZED = upper + lower;
+
+// document.getElementById("chainingRES").textContent = `${userCAPITALIZED}`;
+// }
+
+// with the method
+chainingUSER = "dSasdaLuCAS"
+let corninho = chainingUSER.trim().charAt(0).toUpperCase() + chainingUSER.trim().slice(1).toLowerCase();
+console.log(corninho)
+
+//operadores de lógica, como o && ---->> que significa "E" ////// e o operador || ----->> que significa "OU" ///////// também temos o ! ----->> que significa "diferente de"
+
+let logica = "hello"
+let logica2 = 100
+
+if(logica == "hello" && logica2 == 100){
+    console.log("deu certo a lógica")
+}
+
+let logged = false;
+let userlog;
+let passlog;
+
+while(!logged){
+    
+}
