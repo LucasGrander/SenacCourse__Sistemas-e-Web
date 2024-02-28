@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing</title>
+    <link rel="stylesheet" href="../numberGUESSING/guessing.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Jogo de adivinhação</h1>
+        <div class="twoNUM">
+            <input id="num1" placeholder="núm. min" type="number">
+            <input id="num2" placeholder="núm. max" type="number">
+        </div>
+        <div class="giveaway">
+            <button id="giveaway">Sortear</button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1 id="title"></h1>
+
+        <div class="LBLinput">
+            <label for="">Palpite:</label>
+            <input type="number" id="numField">
+        </div>
+
+        <button id="checkBTN">Conferir</button>
+        <p id="answer"></p>
+    </div>
+</body>
+<script src="../numberGUESSING/guessing.js"></script>
+</html>

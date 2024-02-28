@@ -11,7 +11,7 @@ body{
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 100px;
 }
 
 .container{
@@ -20,7 +20,7 @@ body{
     flex-direction: column;
     border: solid 2px #ccc;
     box-shadow: rgba(255, 255, 255, 0.338) 10px 10px 10px;
-    height: 50%;
+    height: 70%;
     width: 35%;
     position: relative;
     padding: 20px;
@@ -51,35 +51,12 @@ body{
     gap: 20px;
 }
 
-.container #areaGEN{
-    color: black;
-    text-align: center;
-    background-color: #ccc;
-    border-radius: 10px;
-    background-color: #ccc;
-    width: 80%;
-    height: 40px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-}
-
-.container #areaGEN2{
-    color: black;
-    text-align: center;
-    background-color: #ccc;
-    border-radius: 10px;
-    background-color: #ccc;
-    width: 80%;
-    height: 40px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-}
-
-.container #areaGEN3{
+.container #areaGEN,
+.container #areaGEN2,
+.container #areaGEN3,
+.container #areaGEN4,
+.container #areaGEN5,
+.container #areaGEN6{
     color: black;
     text-align: center;
     background-color: #ccc;

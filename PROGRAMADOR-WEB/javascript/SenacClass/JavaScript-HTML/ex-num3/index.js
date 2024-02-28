@@ -1,13 +1,11 @@
-const wordField = document.getElementById("word")
 const selectorField = document.getElementById("selector");
 const colorField = document.getElementById("color");
 const borderField = document.getElementById("border");
 
-
 document.getElementById("btn-change").onclick = function(){
     const elements = document.querySelectorAll(selectorField.value);
     const dropDown = document.getElementById("drop-down");
-
+    
     if(elements.length > 0 ){
         elements.forEach((element) =>{
             if(dropDown.selectedIndex === 0){
