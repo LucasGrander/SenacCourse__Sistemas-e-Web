@@ -8,9 +8,16 @@
 </head>
 
 <body>
+    <img id="image-backg" src="https://4kwallpapers.com/images/walls/thumbs_3t/15225.jpg" alt="">
     <div class="container">
+            <label id="modeText" for="">Mode: Off</label>
+        <div class="OnOff" id="OnOff">
+            <div class="circle" id="circle">
+                
+            </div>
+        </div>
         <div id="calc" class="calculator">
-            <input type="text" id="result-area">
+            <input type="text" id="result-area" disabled>
             <div class="buttons">
                 <div class="buttons-standard">
 <!---------------------- LIMPAR TUDO --------------------------->
@@ -95,7 +102,7 @@
 
 <!---------------------- SCI ------------------------- -->
                     <div id="sci" class="button-simbol">
-                        <button>SCI</button>
+                        <button id="sciBTN">SCI</button>
                     </div>
 
 <!---------------------- ZERO ------------------------- -->
@@ -138,7 +145,7 @@
 
 <!---------------------- SENO ------------------------- -->
                     <div id="sin" class="button">
-                        <button>sen</button>
+                        <button>sin</button>
                     </div>
 
 <!---------------------- DEG ------------------------- -->
