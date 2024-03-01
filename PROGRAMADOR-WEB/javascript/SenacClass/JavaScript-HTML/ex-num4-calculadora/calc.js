@@ -10,10 +10,12 @@ const textMode = document.getElementById("modeText");
 
 mode.onclick = function(){
     if(calcDisplayType.style.display === "none" || calcDisplayType.style.display === ""){
-        onOff.style.justifyContent = "right"
         onOff.style.backgroundColor = "rgba(0, 78, 0, 0.251)"
         mode.style.backgroundColor = "green"
+        mode.style.transform = "translateX(65px)"
+        mode.style.transition = "transform .5s ease-in-out";
         calcDisplayType.style.display = "block"
+        calcDisplayType.style.opacity = "1"
         imgOPC.style.opacity = ".4"
         textMode.textContent = `Mode: On`
 
@@ -27,9 +29,10 @@ mode.onclick = function(){
     }
 
     else{
-        onOff.style.justifyContent = "left"
         onOff.style.backgroundColor = "rgba(236, 134, 134, 0.388)"
         mode.style.backgroundColor = "red"
+        mode.style.transform = "translateX(0px)"
+        mode.style.transition = "transform .5s ease-in-out";
         calcDisplayType.style.display = "none"
         imgOPC.style.opacity = ".2"
         textMode.textContent = `Mode: Off`
@@ -199,11 +202,17 @@ document.getElementById("delete").onclick = function(){
 document.getElementById("sci").onclick = function(){
     const verifyDisplay = document.getElementById("buttons-sci");
     const focusSciBTN = document.getElementById("sciBTN");
-    if(verifyDisplay.style.display === "none" || verifyDisplay.style.display === ""){
+
+    if(verifyDisplay.style.display == "none" || verifyDisplay.style.display == "" || verifyDisplay.style.opacity == "0" || verifyDisplay.style.opacity == ""){
         verifyDisplay.style.display = "grid";
-        verifyDisplay.style.opacity = "1"
         focusSciBTN.style.backgroundColor = "rgb(187, 104, 104)"
         focusSciBTN.style.border = "3px solid black";
+        calcDisplayType.style.width = "1000px"
+
+        setTimeout(() => {
+            verifyDisplay.style.opacity = "1";
+            verifyDisplay.style.transition = "opacity 1s ease-in-out";
+        }, 300);
 
         document.getElementById("sci").onmouseenter = function(){
             focusSciBTN.style.backgroundColor = "rgb(187, 104, 104)"
@@ -214,13 +223,18 @@ document.getElementById("sci").onclick = function(){
 
     }
     else{
-        verifyDisplay.style.display = "none";
-        verifyDisplay.style.opacity = "0"
         focusSciBTN.style.backgroundColor = "red"
         focusSciBTN.style.border = "hidden"
+        verifyDisplay.style.opacity = "0";
+        verifyDisplay.style.transition = "opacity .5s ease-in-out";
 
+        setTimeout(() => {
+            calcDisplayType.style.width = "680px"
+            verifyDisplay.style.transition = "width 1s ease-in-out";
+        }, 300);
+        
         document.getElementById("sci").onmouseenter = function(){
-            focusSciBTN.style.backgroundColor = "rgb(187, 104, 104)"
+            focusSciBTN.style.backgroundColor = "rgb(187, 104, 104)" 
         }
         document.getElementById("sci").onmouseleave = function(){
             focusSciBTN.style.backgroundColor = "red"
@@ -255,7 +269,7 @@ document.getElementById("parenthesis-close").onclick = function(){
     const button = document.getElementById("parenthesis-close");
     const lastClickSolo = resultArea.value.slice(-1)
     if(lastClickSolo == "(" || lastClickSolo == ")"){
-        resultArea.value = resultArea.value.slice(0, -1)
+        resultArea.value = resultArea.value.slice(0, -1);
     }
     resultArea.value += button.textContent.trim();
 
