@@ -17,14 +17,17 @@ mode.onclick = function(){
         calcDisplayType.style.display = "block"
         calcDisplayType.style.opacity = "1"
         imgOPC.style.opacity = ".4"
+        imgOPC.style.transition = "opacity 1s"
         textMode.textContent = `Mode: On`
 
         mode.onmouseenter = function(){
             mode.style.backgroundColor = "rgb(3, 57, 3)"
+            mode.style.transition = ".3s"
         }
         
         mode.onmouseleave = function(){
             mode.style.backgroundColor = "green"
+            mode.style.transition = ".3s"
         }
     }
 
@@ -39,10 +42,12 @@ mode.onclick = function(){
 
         mode.onmouseenter = function(){
             mode.style.backgroundColor = "rgb(86, 9, 9)"
+            mode.style.transition = ".3s"
         }
         
         mode.onmouseleave = function(){
             mode.style.backgroundColor = "red"
+            mode.style.transition = ".3s"
         }
     }
 }

@@ -192,7 +192,6 @@ body img{
     backdrop-filter: blur(20px);
     display: flex;
     align-items: center;
-    justify-content: left;
     padding: 10px;
     background-color: rgba(236, 134, 134, 0.388);
 
@@ -205,7 +204,14 @@ body img{
     background-color: white;
     cursor: pointer;
     background-color: red;
+    transition: .3s;
 }
+
+.circle:hover{
+    background-color: rgb(86, 9, 9);
+    transition: .3s;
+}
+
 }
 
 label{
@@ -227,6 +233,7 @@ label{
     .button-simbol button{
         width: 100px;
         height: 85px;
+        font-size: 25px;
     }
     .button-sci{
         grid-template-columns: 105px 105px 105px 105px;
@@ -241,6 +248,7 @@ label{
     .button-simbol button{
         width: 100px;
         height: 45px;
+        font-size: 15px;
     }
     .button-sci{
         grid-template-columns: 65px 65px 65px 65px;
@@ -255,7 +263,7 @@ label{
     .button-simbol button{
         width: 100px;
         height: 30px;
-        font-size: 18px;
+        font-size: 14px;
     }
     .button-sci{
         grid-template-columns: 50px 50px 50px 50px;
@@ -264,7 +272,6 @@ label{
 
 @media (max-width: 1500px){
     .container{
-        justify-content: left;
         padding: 0 50px;
     }
 }
