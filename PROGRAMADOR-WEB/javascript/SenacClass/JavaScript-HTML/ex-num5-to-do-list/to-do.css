@@ -6,19 +6,154 @@
 }
 
 body{
-    background-color: rgba(0, 255, 255, 0.281)
+    background-color: rgb(0, 0, 0)
 }
 
 .container{
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title{
     width: 100%;
+    padding: 20px;
     display:flex;
     justify-content: center;
-    padding: 40px;
+    border-bottom: 2px solid white;
+    color: white;
+    background-color: black;
+}
+
+.to-do-list-input{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.to-do-list-input input{
+    outline: none;
+    width: 500px;
+    height: 60px;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    color: black;
+    font-weight: 600;
+}
+
+.to-do-list-input input::placeholder{
+    color: rgba(0, 0, 0, 0.548);
+}
+
+.to-do-list-input button{
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    font-weight: 600;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color:rgba(134, 236, 134, 0.789);
+    transition: .3s;
+    border: 2px solid white;
+}
+
+.to-do-list-input button:hover{
+    background-color:rgba(187, 245, 187, 0.489);
+    transition: .3s;
+    transform: scale(1.1);
+}
+
+.modal-container{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+}
+
+.modal{
+    width: 605px;
+    height: 330px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    border: none;
+    border-radius: 15px;
+    position: absolute;
+}
+
+.modal .title{
+    width: 100%;
+    height: 40px;
+    padding: 30px;
+    font-weight: 600;
+    font-size: 28px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: red;
+
+    border: 1px solid white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.message{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+.button-msg{
+    width: 100%;
+    height: 30px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.button-msg button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: 25px;
+    background-color: rgb(180, 220, 180);
+    outline: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+    transition: .3s;
+    border: none;
+}
+
+.button-msg button:hover{
+    background-color: rgb(134, 236, 134);
+    color: black;
 }
 
 .to-do-list-input{
@@ -29,8 +164,90 @@ body{
     margin-bottom: 10px;
 }
 
-.modal-container{
+.content{
+    border: solid 1px white;
+    width: 700px;
+    height: 500px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: -5px 5px 5px rgba(255, 255, 255, 0.215);
+}
+.to-do-list-items{
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: left;
+    padding: 10px;
+}
+
+.to-do-list-items ul{
+    width: 100%;
+    border: none;
+}
+
+.to-do-list-items ul input{
+    width: 100%;
+    height: 60px;
+    padding: 15px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.new-item{
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    margin-top: 10px;
+
+}
+
+.new-item .text{
+    display: flex;
+    width: 100%;
+}
+
+.new-item .text input{
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+}
+
+.new-item .button .ck-button,
+.new-item .button .del-button{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+}
+
+.new-item .button .ck-button{
+    background-color: rgb(0, 64, 255);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
+    transition: .3s;
+}
+
+.new-item .button .ck-button:hover{
+    background-color: rgba(141, 177, 255, 0.559);
+    transition: .3s;
+    border: solid white 1px;
+    transform:rotate(360deg);
+}
+
+.new-item .button .del-button{
+    background-color: red;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.new-item .button .del-button:hover{    
+    background-color: rgba(223, 124, 124, 0.505);
+    transition: .3s;
+    border: solid white 1px;
+    transform:rotate(180deg)
 }

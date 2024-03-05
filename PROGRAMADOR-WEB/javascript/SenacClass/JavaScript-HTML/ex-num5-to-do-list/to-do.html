@@ -2,27 +2,28 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de tarefas diárias</title>
     <link rel="stylesheet" href="to-do.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <div class="title">
-            <h1>Lista de tarefas</h1>
+            <h1>LISTA DE TAREFAS</h1>
         </div>
-        <div class="to-do-list-input">
+        <div class="to-do-list-input" id="to-do-list-input">
             <input type="text" id="newTask" placeholder="Adicionar tarefa">
-            <button id="button-add-task" onClick = "addTask()" >Add</button>
+            <button id="button-add-task" onClick = "addTask()" >+</button>
         </div>
-        <div class="to-do-list-items">
-            <ul id="to-do-list"></ul>
+        <div class="content" id="content-to-do">
+            <div class="to-do-list-items">
+                <ul id="to-do-list"></ul>
+            </div>
         </div>
         <div id="modal-container" class="modal-container"></div>
         <div id="modal-overlay" class="modal-overlay"></div>
     </div>
 </body>
-
 
 <script src="to-do.js"></script>
 </html>
