@@ -20,14 +20,14 @@ function addTask(){
     taskCount = document.getElementsByClassName("new-item").length;
     const newTask = document.getElementById("newTask");
 
-    if(newTask.value != "" && newTask.value != " "){
+    if(newTask.value.trim() != ""){
         const toDoList = document.getElementById("to-do-list");
         const newItem = document.createElement("div");
 
         newItem.innerHTML = 
         `<div id="${`item-${taskCount}`}" class="new-item">
             <div class="text">
-                <input id="${`text-${taskCount}`}" type="text" readonly value="${newTask.value}">
+                <input id="${`text-${taskCount}`}" type="text" readonly value="${newTask.value.trim()}">
             </div>
             <div class="button">
                 <button id="${`check-${taskCount}`}" class="ck-button" onClick="checkTask(this.id)">✔</button>
@@ -61,17 +61,37 @@ function checkTask(id){
     else{
         taskField.style.textDecoration = "line-through";
         taskField.style.backgroundColor = "gray";
-        taskField.style.opacity = ".5";
+        taskField.style.opacity = ".3";
 
-        buttonCheck.style.opacity = ".5";
-        buttonRemove.style.opacity = ".5";
+        buttonCheck.style.opacity = ".3";
+        buttonRemove.style.opacity = ".3";
+
+        buttonCheck.onmouseenter = function(){
+            buttonCheck.style.opacity = "1";
+        }
+        buttonCheck.onmouseleave = function(){
+            buttonCheck.style.opacity = ".3";
+        }
+
+        buttonRemove.onmouseenter = function(){
+            buttonRemove.style.opacity = "1";
+        }
+        buttonRemove.onmouseleave = function(){
+            buttonRemove.style.opacity = ".3";
+        }
     }
 }
 
 function removeTask(id){
     const idNumber = id.split("-")[1];
     const itemToRemove = document.getElementById(`item-${idNumber}`);
-    itemToRemove.parentNode.removeChild(itemToRemove);
+    itemToRemove.style.transform = "scale(.1)";
+    itemToRemove.style.transition = ".25s";
+
+    setTimeout(() => {
+        itemToRemove.parentNode.removeChild(itemToRemove);
+    }, 250)
+    
 }
 
 function openModal(){
