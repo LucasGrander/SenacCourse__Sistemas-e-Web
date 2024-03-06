@@ -1,0 +1,180 @@
+
+/* ESSE "*" muda tudo na página... Sendo assim, para "zerar" a página e evitar que ela coloque "margin" e "padding" de forma automática, eu já defino um valor para eles. O "box-sizing: border-box" evita que a borda de um elemento invada a de outro, seria meio que uma limitação que colocamos, que no caso, respeitará a borda de cada elemento -------->> */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/*  No Body colocamos os valores de largura e altura para a página toda, assim, o Body sendo o "pai" de todos, podemos trabalhar com as divs dentro dele de forma livre! As atribuições do display, align-items e justify-content não são definitivas, nesse caso, como vamos trabalhar com uma tela de login e queremos centralizar a mesma na página, devemos usar os valores abaixo -------------->> */
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+/* Abaixo, definimos o fundo da nossa página. Normalmente se usa "background-image: url()" no Body da página, porém, como o intuito é aplicar opacidade na imagem de fundo, colocamos ela no html e ativamos a mesma com as 2 próximas alterações: ".imgFUNDO" e a ".imgFUNDO img" --------> No caso da .imgFUNDO, por ela ser uma div em nosso HTML, ela é o "pai" do que está dentro dela, nesse caso, a imagem de fundo... Como ela é pai da mesma e queremos trabalhar livremente com ela, foi atrubuído a largura e altura máxima, assim, a imagem pode ser colocar EM QUALQUER LUGAR DA PÁGINA... ***Só relembrando os positions declarados no "body" e ".imgFUNDO" --> no body o valor foi "relative", pois, ela especifica uma posição relativa do elemento filho em relação a algo: o elemento pai... E é agora que entra a parte do "position: absolute", então se definirmos uma div com relative(BODY) e suas divs filhas(imgFUNDO) com absolute, poderemos livremente posicionar a div filha, sem que os outros elementos da página também atrapalhem*/
+.imgFUNDO{
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.imgFUNDO img{
+    /* estilização da imagem, aplicando opacidade e tamanho */
+    opacity: .50;
+    width: 100%;
+    height: 100%;
+
+    /* camada da imagem */
+    z-index: 0;
+}
+
+.container{
+    /* centralizar conteúdo dentro do container */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+
+    /* estilização de borda e fundo --> z-index: para camada do container */
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    box-shadow: rgba(0, 0, 0, 0.853) 2px 6px 8px, rgba(0, 0, 0, 0.645) -2px -1px 8px;
+    border: 2px solid;
+    border-radius: 10px;
+    z-index: 1;
+
+    /* altura e largura do container */
+    width: 500px;
+    height: 500px;
+}
+
+.container .content{
+    /* como o container não estava conseguindo "comandar" as divs filhas, foi criado um novo "pai" para a logo do Semeando Campeões, os 2 inputs e o botão ---->
+    Olhar o "index.html", qualquer dúvida! */
+    width: 100%;
+    height: 100%;
+}
+
+/* Aqui só foi definido margin tanto para a parte de cima quanto a de baixo da imagem. Também alterando altura e tamanho.*/
+.container .content img{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 130px;
+    height: 130px;
+}
+
+/* O form foi colocado como 100% da largura do content, ou seja, ficará com todo o espaço de largura para trabalharmos com os inputs e o botão de acesso, para quando mudarmos o tamanho dos inputs e do botão, eles não recuarem para o canto... Com o tamanho escolhido, atribuímos as estilizações de display, align, justify e flex-direction, assim, além de ficarem no centro, os 2 inputs e o botão irão ficar um abaxio do outro (A ação de ficar um abaixo do outro foi realizada pelo "flex-direction") --------------->> */
+.container .content form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Com a teoria acima aplicada, agora podemos escolher o tamanho que quisermos para o INPUT */
+.container .content form input{
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.804) 0 2px 5px;
+    font-size: 16px;
+    height: 50px;
+    width: 80%;
+    /* esse padding foi aplicado com o intuito de afastar a escrita do usuário das bordas do input, também, já afastando o placeholder aplicado no input --------->> */
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1.5px solid rgba(0, 0, 0, 0.634);
+    border-radius: 10px;
+    /* Esse "outline: none" tira uma que é borda aplicada automaticamente pelo sistema quando o usuário clickar em alguma campo INPUT */
+    outline: none;
+}
+
+.container .content form input:focus{
+    border: 2px solid black;
+    box-shadow: black 0 0 5px;
+}
+
+
+/* estilizando o placeholder do input */
+.container .content form input::placeholder{
+    color: rgba(0, 0, 0, 0.753);
+}
+
+/* agora alterando o botão de ACESSO */
+.container .content form button{
+    background-color: transparent;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.711) 0 2px 5px;
+    font-size: 16px;
+    font-weight: 600;
+    /* o letter-spacing adicona um espaço entre as letras, que o mesmo é escolhido por você, no caso, foi adicionado 1px de espaço entre as letras */
+    letter-spacing: 1px;
+    height: 35px;
+    /* Foi escolhido o mesmo tamanho tanto para os INPUTS quando para o BUTTON, porém, o valor pode ser alterado sem nenhuma mudança na sua centralização */
+    width: 80%;
+    border: 1.5px solid rgba(0, 0, 0, 0.659);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s;
+}
+/* Se observar, foi aplicado tanto "transition" no próprio botão quanto no :hover dele, isso porque, quando TIRARMOS ou COLOCARMOS o mouse sobre ele, não irá piscar rapidamente, e sim, haverá uma transição de opacidade entre uma cor e outra*/
+.container .content form button:hover{
+    background-color: #ffffff96;
+    color: rgba(0, 0, 0, 0.873);
+    border: 1.5px solid rgba(0, 0, 0, 0.878);
+    transition: .2s;
+}
+
+
+/* Aqui foi criada uma tag no final do "container" (abaixo do botão de acesso), para quando um usuário não digitar a senha ou o próprio usuário de forma correta, apresentará uma mensagem, repassada pelo JavaScript em vermelho */
+
+/* OBS: a color da tag está transparente, pois, quando o usuário errar alguma das entradas de dado, haverá uma "transition" entre a color "transparent" e a color "red", a qual foi aplicada no JavaScript, somente se o usuário errar o LOGIN */
+.container .content #error{
+    margin-top: 15px;
+    font-size: 13px;
+    color: transparent;
+    transition: .2s;
+    font-weight: 600;
+    height: 30px;
+}
+
+/* div pai das redes sociais e seus respectivos links de redirecionamento */
+.container .content .media{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* o gap é usado na tag pai para dar um afastamento das divs filhas, no caso, dei um espaçamento de 50px de um ícone da rede social até o outro */
+    gap: 50px;
+}
+
+/* eu dei uma classe chamada "social" para todos os ícones da redes sociais, assim, posso alterá-los de uma só vez */
+.container .content .social{
+    width: 40px;
+    height: 40px;
+    border-radius: 30%;
+}
+
+/* os codes abaixos são todos os :hover usados para animar com uma sombra os ícones das redes sociais*/
+#instagram:hover{
+    filter:drop-shadow( 0 0 10px rgba(102, 7, 104, 0.884));
+}
+
+#youtube:hover{
+    filter:drop-shadow( 0 0 10px rgba(102, 6, 6, 0.84));
+}
+
+#twitter:hover{
+    filter:drop-shadow( 0 0 10px rgba(3, 52, 68, 0.993));
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-widht, inicial-scale">
+        <link rel="stylesheet" href="index.css">
+        <title>Login</title>
+    </head>
+    <body>
+        <!-- BACKGROUND REGULADO PARA FICAR DE IMAGEM NO FUNDO -->
+        <div class="imgFUNDO">
+            <img src="res/equipe.jpg">
+        </div>
+
+        <div class="container">
+            <!-- Criada uma outra div, chamamos ela de "content", agora no CSS o "content" só esboça o espaço do conteúdo e o "container" é quem vai comandar tudo que está dentro do mesmo  //// Olhando o código CSS podemos notar, qualquer tipo de alinhamento está dentro do container, e o content tem somente o tamanho ('100% do container')-->
+            <div class="content">
+                <img src="res/PSC-sem-fundo.png">
+                <form>
+                    <input id="user" type="text" placeholder="Nome de usuário">
+                    <input id="password" type="password" placeholder="Senha">
+
+                    <!-- definir um evento "onclick" -->
+                    <button id="confirm" type="button" onclick="login()">Entrar</button>
+                </form>
+                <div>
+                    <p id="error"></p>
+                </div>
+                <div class="media" >
+                    <div class="editYT">
+                        <a id="linkYT" href="https://www.youtube.com/" target="_blank">
+                            <img id="youtube" class="social" src="res/youtube.svg">
+                            </a>  
+                    </div>
+                    
+                    <div class="editINSTA">
+                        <a href="https://www.instagram.com/" target="_blank">
+                            <img id="instagram" class="social" src="res/instagram.svg">
+                        </a>
+                    </div>
+
+                    <div class="editTWT">
+                        <a href="https://twitter.com/" target="_blank">
+                            <img id="twitter" class="social" src="res/twitter.svg">
+                        </a>
+                    </div>
+                    
+                    
+                </div>
+                </div>
+            </div>
+        </div>     
+        
+        <script>
+            //função utilizada para fazer uma referencia ao elemento HTML pelo ID
+            const userFild = document.getElementById("user");
+            const passwordField = document.getElementById("password");
+            const errorMSG = document.getElementById("error");
+
+            //declarar uma função "login"
+            function login(){
+                //"userfild" criada anteriormente sendo usada agora, recebendo o valor digitado
+                const username = userFild.value;
+                const password = passwordField.value;
+                // configura um alerta, para verificar se a função funciona 
+                // alert(username + " " + password);
+                if(username === "Ricardo" && password === "1234"){
+                    //recebe a pagina home.html
+                    window.location.href = "./home.html"
+
+                }else{
+                    errorMSG.innerHTML = `Usuário ou senha incorreto.`
+                    errorMSG.style.color = "red"
+                }
+            }
+        </script>
+    </body>
+</html>
