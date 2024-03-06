@@ -1,5 +1,3 @@
-
-
 document.getElementById("modal-container").innerHTML = 
 `<div class="modal">
     <div class="title" >
@@ -33,7 +31,7 @@ function addTask(){
                 <button id="${`check-${taskCount}`}" class="ck-button" onClick="checkTask(this.id)">✔</button>
             </div>
             <div class="button">
-                <button id="${`remove-${taskCount}`}" class="del-button" onClick="removeTask(this.id)">X</button>
+                <button id="${`remove-${taskCount}`}" class="del-button" onClick="removeTask(this.id)"><img src="../res/trash.svg"></button>
             </div>
         </div>`;
 
@@ -49,20 +47,35 @@ function checkTask(id){
     const taskField = document.getElementById(`text-${idNumber}`);
     const buttonCheck = document.getElementById(`check-${idNumber}`);
     const buttonRemove = document.getElementById(`remove-${idNumber}`);
+    const itemField = document.getElementById(`item-${idNumber}`);
 
     if(taskField.style.textDecoration == "line-through"){
         taskField.style.textDecoration = "none";
-        taskField.style.backgroundColor = "white";
+        taskField.style.backgroundColor = "transparent";
         taskField.style.opacity = "1";
-
+        itemField.style.border = "1px rgba(255, 255, 255, 0.678) solid"
         buttonCheck.style.opacity = "1";
         buttonRemove.style.opacity = "1";
+
+        buttonCheck.onmouseenter = function(){
+            buttonCheck.style.opacity = ".7";
+        }
+        buttonCheck.onmouseleave = function(){
+            buttonCheck.style.opacity = "1";
+        }
+
+        buttonRemove.onmouseenter = function(){
+            buttonRemove.style.opacity = ".7";
+        }
+        buttonRemove.onmouseleave = function(){
+            buttonRemove.style.opacity = "1";
+        }
     }
     else{
         taskField.style.textDecoration = "line-through";
-        taskField.style.backgroundColor = "gray";
+        taskField.style.backgroundColor = "transparent";
         taskField.style.opacity = ".3";
-
+        itemField.style.border = "1px rgba(255, 255, 255, 0.250) solid"
         buttonCheck.style.opacity = ".3";
         buttonRemove.style.opacity = ".3";
 

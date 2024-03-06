@@ -6,7 +6,9 @@
 }
 
 body{
-    background-color: rgb(0, 0, 0)
+    background-color: rgb(0, 0, 0);
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .container{
@@ -19,12 +21,22 @@ body{
 
 .title{
     width: 100%;
-    padding: 20px;
-    display:flex;
+    padding: 30px;
+    display: flex;
     justify-content: center;
-    border-bottom: 2px solid white;
-    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.582);
+    color: rgb(0, 0, 0);
     background-color: black;
+}
+
+.title h1{
+    width: 100%;
+    letter-spacing: 10px;
+    -webkit-text-stroke: rgb(255, 255, 255) .5px;
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+
 }
 
 .to-do-list-input{
@@ -34,40 +46,50 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+    margin-bottom: 10px;
+    gap: 20px;
+    padding: 20px;
 }
 
 .to-do-list-input input{
     outline: none;
-    width: 500px;
+    width: 35%;
     height: 60px;
-    padding: 15px;
+    padding: 0px 70px 0px 20px;
     font-size: 18px;
     border-radius: 10px;
     border: none;
-    color: black;
-    font-weight: 600;
+    color: white;
+    font-weight: 300;
+    background-color: #3d3d3d9a;
+    border: 1px solid rgba(255, 255, 255, 0.63);
+    box-shadow: -5px 5px 5px rgba(255, 255, 255, 0.336);
 }
 
 .to-do-list-input input::placeholder{
-    color: rgba(0, 0, 0, 0.548);
+    color: rgba(255, 255, 255, 0.473);
 }
 
 .to-do-list-input button{
-    width: 60px;
-    height: 60px;
-    font-size: 40px;
-    font-weight: 600;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    font-weight: 300;
+    border-radius: 35px;
     cursor: pointer;
-    background-color:rgba(134, 236, 134, 0.789);
-    transition: .3s;
-    border: 2px solid white;
+    font-weight: 600;
+    color: white;
+    background-color:rgba(57, 161, 57, 0.789);
+    transition: .2s;
+    border: 3px solid rgb(255, 255, 255);
+    position: absolute;
+    right: 609px;
 }
 
 .to-do-list-input button:hover{
-    background-color:rgba(187, 245, 187, 0.489);
-    transition: .3s;
-    transform: scale(1.1);
+    background-color:rgba(144, 207, 144, 0.489);
+    transition: .2s;
+    transform: scale(1.15);
 }
 
 .modal-container{
@@ -138,7 +160,7 @@ body{
     width: 100%;
     height: 100%;
     padding: 30px;
-    background-color: white;
+    background-color: rgb(223, 214, 214);
     color: rgb(0, 0, 0);
     font-weight: 600;
     font-size: 25px;
@@ -156,23 +178,15 @@ body{
     color: black;
 }
 
-.to-do-list-input{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    margin-bottom: 10px;
-}
-
 .content{
-    border: solid 1px white;
-    width: 700px;
-    height: 500px;
+    padding: 5px;
+    border: solid 2px rgba(255, 255, 255, 0.486);
+    width: 50%;
+    height: 70%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    box-shadow: -5px 5px 5px rgba(255, 255, 255, 0.215);
+    overflow: auto;
+    box-shadow: -5px 5px 5px rgba(255, 255, 255, 0.322);
 }
 .to-do-list-items{
     width: 100%;
@@ -197,13 +211,19 @@ body{
 .new-item{
     display: flex;
     width: 100%;
-    gap: 5px;
-    margin-top: 10px;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px rgba(255, 255, 255, 0.678) solid;
+    background-color: #3d3d3d9a;
+    border-radius: 30px;
+}
 
+#item-0{
+    margin-top: 0px;
 }
 
 .new-item .text{
-    display: flex;
     width: 100%;
 }
 
@@ -211,6 +231,8 @@ body{
     font-size: 18px;
     font-weight: 600;
     border: none;
+    color: white;
+    background-color: transparent;
 }
 
 .new-item .button .ck-button,
@@ -223,7 +245,7 @@ body{
 }
 
 .new-item .button .ck-button{
-    background-color: rgb(0, 64, 255);
+    background-color: rgb(41, 81, 202);
     font-weight: 600;
     cursor: pointer;
     font-size: 20px;
@@ -249,5 +271,10 @@ body{
     background-color: rgba(223, 124, 124, 0.505);
     transition: .3s;
     border: solid white 1px;
-    transform:rotate(180deg)
+    transform:rotate(360deg)
+}
+
+.new-item .button .del-button img{
+    width: 30px;
+    height: 30px;
 }
