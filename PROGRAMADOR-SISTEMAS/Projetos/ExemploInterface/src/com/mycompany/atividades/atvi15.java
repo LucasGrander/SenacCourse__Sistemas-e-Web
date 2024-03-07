@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author grander.3993
  */
-public class atv15 {
+public class atvi15 {
     public static void main(String[] args) {
         Scanner s = new Scanner (System.in);
         

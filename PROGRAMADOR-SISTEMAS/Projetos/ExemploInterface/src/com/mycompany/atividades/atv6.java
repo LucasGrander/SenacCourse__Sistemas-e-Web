@@ -19,6 +19,9 @@ public class atv6 {
         System.out.println("Escolha um numero parar descobrir sua tabuada");
         num = s.nextInt();
         
+        System.out.println("===============================================");
+         System.out.println("Tabuada do numero: " + num);
+         System.out.println("===============================================");
         for(i = 0; i <= 10; i++){
             int res;
             res = num * i;
