@@ -99,15 +99,20 @@ function removeTask(id){
     const idNumber = id.split("-")[1];
     const itemToRemove = document.getElementById(`item-${idNumber}`);
     itemToRemove.style.transform = "scale(.1)";
-    itemToRemove.style.transition = ".25s";
+    itemToRemove.style.transition = ".4s";
 
     setTimeout(() => {
         itemToRemove.parentNode.removeChild(itemToRemove);
-    }, 250)
+    }, 350)
     
 }
 
 function openModal(){
+    setTimeout(() => {
+        document.getElementById("modal-container").style.transform = "scale(1)";
+    document.getElementById("modal-container").style.transition = ".3s";
+    }, 50)
+
     document.getElementById("modal-container").style.display = "flex";
     document.getElementById("modal-container").style.opacity = "1"
     document.getElementById("to-do-list-input").style.display = "none";
@@ -117,10 +122,15 @@ function openModal(){
 }
 
 function closeModal(){
-    document.getElementById("modal-container").style.display = "none";
-    document.getElementById("modal-container").style.opacity = "0"
-    document.getElementById("to-do-list-input").style.opacity = "1";
-    document.getElementById("to-do-list-input").style.display = "flex";
-    document.getElementById("content-to-do").style.opacity = "1";
-    document.getElementById("content-to-do").style.display = "flex";
+    document.getElementById("modal-container").style.transform = "scale(0)";
+    document.getElementById("modal-container").style.transition = ".35s";
+
+    setTimeout(() => {
+        document.getElementById("modal-container").style.display = "none";
+        document.getElementById("modal-container").style.opacity = "0"
+        document.getElementById("to-do-list-input").style.opacity = "1";
+        document.getElementById("to-do-list-input").style.display = "flex";
+        document.getElementById("content-to-do").style.opacity = "1";
+        document.getElementById("content-to-do").style.display = "flex";
+    }, 250)
 }
