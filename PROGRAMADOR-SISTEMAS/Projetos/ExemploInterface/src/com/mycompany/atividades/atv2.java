@@ -19,10 +19,10 @@ public class atv2 {
         System.out.println("escolha o 1o numero:");
         num1 = s.nextInt();
         
-        System.out.println("escolha o 1o numero:");
+        System.out.println("escolha o 2o numero:");
         num2 = s.nextInt();
         
-        System.out.println("escolha o 1o numero:");
+        System.out.println("escolha o 3o numero:");
         num3 = s.nextInt();
         
         media = (num1 + num2 + num3) / 3;

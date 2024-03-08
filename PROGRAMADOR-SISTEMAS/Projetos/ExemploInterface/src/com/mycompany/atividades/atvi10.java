@@ -10,18 +10,16 @@ import java.util.Scanner;
  *
  * @author grander.3993
  */
-public class atv1 {
+public class atvi10 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int x, y, res;
-        System.out.println("Informe o primeiro numero:");
-        x = s.nextInt();
+        Float celsius, fahren;
         
-        System.out.println("Informe o segundo numero:");
-        y = s.nextInt();
-                
-        res = x + y;
+        System.out.println("Digite a temperatura em Celsius");
+        celsius = s.nextFloat();
         
-        System.out.println("A soma e igual a: " +  res);
+        fahren = (celsius*9/5) + 32;
+        
+        System.out.println("a temperatura em Fahreheit é: " + fahren + "F");
     }
 }

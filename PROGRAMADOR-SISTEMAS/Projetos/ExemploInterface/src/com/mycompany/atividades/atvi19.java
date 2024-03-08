@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author lucas
  */
-public class atv19 {
+public class atvi19 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         
@@ -36,6 +36,7 @@ public class atv19 {
         media = (nota1 + nota2 + nota3) / 3;
         
         mediaPonderada = ((nota1*peso1) + (nota2*peso2) + (nota3*peso3)) / (peso1 + peso2 + peso3);
+        
         System.out.println("===============================================");
          System.out.println("O valor da media simples e de : " + media + " !!");
          System.out.println("--------------------------------------------------------------------");
