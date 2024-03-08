@@ -254,6 +254,7 @@ body{
     cursor: pointer;
     font-size: 20px;
     transition: .3s;
+    color: rgb(4, 4, 150);
 }
 
 .new-item .button .ck-button:hover{
@@ -275,12 +276,13 @@ body{
     background-color: rgba(223, 124, 124, 0.505);
     transition: .3s;
     border: solid white 1px;
-    transform:rotate(360deg)
+    transform:rotate(360deg);
 }
 
 .new-item .button .del-button img{
     width: 30px;
     height: 30px;
+
 }
 
 @media (max-height: 745px){

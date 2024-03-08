@@ -1,0 +1,19 @@
+.calcs span{
+    display: flex;
+    flex-direction: column;
+
+    animation-name: oneByeone;
+    animation-duration: 1s;
+}
+
+@keyframes oneByone {
+0%{
+    transform : scale (0);
+    transition: 3s;
+}    
+
+100%{
+    transform : scale (1);
+    transition: 3s;
+}
+}

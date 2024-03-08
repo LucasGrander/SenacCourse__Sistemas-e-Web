@@ -15,7 +15,7 @@ let taskCount = 0;
 closeModal();
 
 function addTask(){
-    taskCount = document.getElementsByClassName("new-item").length;
+    taskCount = document.getElementsByClassName("new-item").length + 1;
     const newTask = document.getElementById("newTask");
 
     if(newTask.value.trim() != ""){
@@ -24,14 +24,17 @@ function addTask(){
 
         newItem.innerHTML = 
         `<div id="${`item-${taskCount}`}" class="new-item">
+        <div class = "counter">
+        <input id="${`count-${taskCount}`}" type="text" readonly value="${taskCount}">
+        </div>
             <div class="text">
-                <input id="${`text-${taskCount}`}" type="text" readonly value="${newTask.value.trim()}">
+                <input id="${`text-${taskCount}`}" type="text" readonly value="${taskCount} - ${newTask.value.trim()}">
             </div>
             <div class="button">
                 <button id="${`check-${taskCount}`}" class="ck-button" onClick="checkTask(this.id)">✔</button>
             </div>
             <div class="button">
-                <button id="${`remove-${taskCount}`}" class="del-button" onClick="removeTask(this.id)"><img src="../res/trash.svg"></button>
+                <button id="${`remove-${taskCount}`}" class="del-button" onClick="removeTask(this.id)"><img src="/res/trash.svg"></button>
             </div>
         </div>`;
 
