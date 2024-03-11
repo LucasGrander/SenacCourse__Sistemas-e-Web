@@ -7,12 +7,18 @@ document.getElementById("acess").onclick = function(){
     const password = passwordFIELD.value; 
 
 
-if(username === "lucas" && password === "123"){
-    loginRES.textContent = `Seja bem-vindo, ${username}!`;
+if(username === "isabelly" && password === "12345"){
+    loginRES.innerHTML = `Seja bem-vindo, ${username}! <img src="res/loading-gif.gif">`;
     loginRES.style.color = "rgb(60, 255, 60)";
+    
+
+    setTimeout(()=>{
+        window.location.href = "home.html";
+    }, 1500)
+
 }
 else{
-    loginRES.innerHTML = `Usuário ou senha incorreto. Tente novamente!`;
+    loginRES.innerHTML = `Usuário ou senha incorreto. Tente novamente! `;
     loginRES.style.color = "red";
     }
 }

@@ -5,8 +5,8 @@ let random4;
 let random5;
 let random6;
 
-let min = 1;
-let max = 60;
+let min = 50;
+let max = 150;
 
 document.getElementById("btnGEN").onclick = function(){
     random = Math.floor(Math.random() * (max - min));

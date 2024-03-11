@@ -25,10 +25,10 @@ function addTask(){
         newItem.innerHTML = 
         `<div id="${`item-${taskCount}`}" class="new-item">
         <div class = "counter">
-        <input id="${`count-${taskCount}`}" type="text" readonly value="${taskCount}">
+        <input class="counter-num" id="${`count-${taskCount}`}" type="text" readonly value="${taskCount}.">
         </div>
             <div class="text">
-                <input id="${`text-${taskCount}`}" type="text" readonly value="${taskCount} - ${newTask.value.trim()}">
+                <input id="${`text-${taskCount}`}" type="text" readonly value="${newTask.value.trim()}">
             </div>
             <div class="button">
                 <button id="${`check-${taskCount}`}" class="ck-button" onClick="checkTask(this.id)">✔</button>
@@ -47,6 +47,7 @@ function addTask(){
 }
 function checkTask(id){
     const idNumber = id.split("-")[1];
+    const counter = document.getElementById(`count-${idNumber}`);
     const taskField = document.getElementById(`text-${idNumber}`);
     const buttonCheck = document.getElementById(`check-${idNumber}`);
     const buttonRemove = document.getElementById(`remove-${idNumber}`);
@@ -59,6 +60,7 @@ function checkTask(id){
         itemField.style.border = "1px rgba(255, 255, 255, 0.678) solid"
         buttonCheck.style.opacity = "1";
         buttonRemove.style.opacity = "1";
+        counter.style.opacity = "1"
 
         buttonCheck.onmouseenter = function(){
             buttonCheck.style.opacity = ".7";
@@ -81,6 +83,7 @@ function checkTask(id){
         itemField.style.border = "1px rgba(255, 255, 255, 0.250) solid"
         buttonCheck.style.opacity = ".3";
         buttonRemove.style.opacity = ".3";
+        counter.style.opacity = ".3"
 
         buttonCheck.onmouseenter = function(){
             buttonCheck.style.opacity = "1";

@@ -1,19 +1,153 @@
-.calcs span{
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(https://wallpapercave.com/wp/wp1844011.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(10px);
+
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 35%;
+    height: 90%;
+}
+
+.input-btn-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+    height: 100px;
+    gap: 50px;
+}
+
+.input-btn-area input{
+    text-align: center;
+    height: 30px;
+    width: 150px;
+
+    color: black;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.input-btn-area input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.input-btn-area input::placeholder{
+    font-size: 15px;
+}
+
+.container button{
+    height: 50px;
+    width: 200px;
+
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border-radius: 15px;
+
+    background-color: rgb(96, 252, 96);
+    border: solid 1px black;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.container button:hover{
+    background-color: rgb(29, 78, 29);
+    border: solid 1px rgb(255, 255, 255);
+    transition: .2s;
+    color: white;
+}
+
+.container input:focus{
+    border: 3px solid greenyellow;
+}
+
+.calcs{
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    animation-name: oneByeone;
-    animation-duration: 1s;
+    width: 75%;
+    height: 80%;
+    padding: 10px;
+
+    color: white;
+    font-size: 20px;
+
+    border: solid 3px white;
+    overflow: auto;
+    gap: 25px;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 10px;
 }
 
-@keyframes oneByone {
-0%{
-    transform : scale (0);
-    transition: 3s;
-}    
+.calcs span{
+    word-spacing: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-100%{
-    transform : scale (1);
-    transition: 3s;
 }
+
+.container p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 75%;
+    height: 50px;
+    padding: 10px;
+
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background-color: rgba(255, 255, 255, 0.19);
+
+    border: solid 3px white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 20px;
+}
+
+
+
+.effectForSpan{
+    animation-name: appearNumbers;
+    animation-duration:.5s;
+}
+
+@keyframes appearNumbers {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
 }

@@ -29,6 +29,7 @@ document.getElementById("giveaway").onclick = function(){
         else if(choosedNum.value == randomNum){
             document.getElementById("answer").textContent = `Você acertou, o número era o ${randomNum}!!! Tentativas: ${tentativas}`;
             answer.style.color = "green";
+
         }
     };
 };
