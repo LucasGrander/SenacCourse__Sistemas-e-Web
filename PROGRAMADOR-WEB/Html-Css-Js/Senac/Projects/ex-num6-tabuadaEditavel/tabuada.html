@@ -9,14 +9,17 @@
 </head>
 
 <body>
-    <div class="input-btn-area">
-        <input type="text" id="input-num-fixo">
-        <input type="text" id="input-num-var">
+    <div class="container">    
+        <div class="input-btn-area">
+            <input placeholder="Número da Tabuada" type="text" id="input-num-fixo">
+            <input placeholder="Multiplicador Máximo" type="text" id="input-num-var">
+        </div>
         <button id="btn-action">Calcular</button>
-    </div>
-    <div class="calcs" id="calcs">
-        <span id="res-calc-final"></span>
+        <p id="titleTAB"></p>
+        <div class="calcs" id="calcs"></div>
     </div>
 </body>
+
+
 <script src="tabuada.js"></script>
 </html>

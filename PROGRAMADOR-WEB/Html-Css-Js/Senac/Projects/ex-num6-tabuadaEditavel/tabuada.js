@@ -1,17 +1,16 @@
 const numFix = document.getElementById("input-num-fixo");
 const numVar = document.getElementById("input-num-var");
-
-
 document.getElementById("btn-action").onclick = function(){
-    for(i = 0 ; i <= numVar.value ; i++){
+    document.getElementById("calcs").textContent = ""
+    document.getElementById("titleTAB").textContent = `Tabuada do ${numFix.value}`;
 
+    for(i = 1 ; i <= numVar.value ; i++){
         const result = numFix.value * i;
-
         const calcs = document.getElementById("calcs")
         const showResult = document.createElement("span");
-
         showResult.innerHTML = `<span>${numFix.value} x ${i} = ${result}</span>`;
-        
-        calcs.appendChild(showResult);
+        setTimeout(() =>{
+            calcs.appendChild(showResult);
+        }, i * 50)
     }
 }
