@@ -11,15 +11,20 @@ import java.util.Scanner;
  * @author grander.3993
  */
 public class atvi10 {
+
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
+        //celsius é a entrada de dados do user e fahren é o valor da entrada convertido para fahreheit
         Float celsius, fahren;
-        
+
+        //entrada de temp dem Celsius
         System.out.println("Digite a temperatura em Celsius");
         celsius = s.nextFloat();
-        
-        fahren = (celsius*9/5) + 32;
-        
+
+        //conta para a conversão
+        fahren = (celsius * 9 / 5) + 32;
+
+        //retornar resposta
         System.out.println("a temperatura em Fahreheit é: " + fahren + "F");
     }
 }
