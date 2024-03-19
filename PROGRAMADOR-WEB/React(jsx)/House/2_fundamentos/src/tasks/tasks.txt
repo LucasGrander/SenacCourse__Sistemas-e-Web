@@ -1,0 +1,8 @@
+task 1 -
+renderizar na tela uma mensagem personalizada de boas vindas, onde haverá uma Prop com o name user...
+
+task 2 -
+criar um botão e criar um texto para indicar a quantidade de vezes que esse botão foi clicado
+
+task 3 -
+criar uma taskList, conforme add tarefa, aparecerá na tela, caso não tenha tarefas, exibir a mensagem de quem não tem tarefas para mostrar
