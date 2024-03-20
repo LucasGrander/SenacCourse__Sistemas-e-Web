@@ -1,6 +1,6 @@
 import MyInput from './components/MyInput'
 import MyButton from './components/MyButton'
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import MyCount from './components/MyCount';
 

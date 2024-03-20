@@ -1,8 +1,7 @@
 import { ReactNode } from "react"
-import App from "../App"
 
 interface Props{
-    children: ReactNode
+    children: ReactNode;
 }
 
 const MyCount = ({children}: Props) => {
