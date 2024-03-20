@@ -1,14 +1,32 @@
+import { ChangeEvent, useState } from 'react';
 import './MyInput.css'
 
 interface Props{
-  type: string;
-  ph: string;
+  type?: string;
+
+  value?: string;
+
+  bgColor?: string;
+  fontColor?: string;
+
+  ph?: string;
+  phColor?: string;
+
+  onChange?: (e : ChangeEvent<HTMLInputElement>) => void
 }
 
 
-function MyInput({type, ph}: Props) {
+function MyInput(props : Props) {
+
+  // const [isFocused, setIsFocused] = useState(false);
+
     return (
-      <input type={type} placeholder={ph} />
+      <input
+      type = {props.type}
+      placeholder ={ props.ph}
+      value = {props.value}
+      onChange={props.onChange}
+      />
     )
   }
   
