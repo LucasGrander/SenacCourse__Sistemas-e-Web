@@ -4,19 +4,20 @@
  */
 package com.mycompany.ativdades.array;
 
-import java.util.Scanner;
-
 /**
  *
  * @author grander.3993
  */
-public class atv1 {
+public class atv5 {
 
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        int[] arrNumb = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        int[] nums = {10, 20, 30};
-
-        System.out.println(nums[0] + nums[1] + nums[2]);
+        for (int i = 0; i < arrNumb.length; i++) {
+            int conta = arrNumb[i] % 2;
+            if (conta == 0) {
+                System.out.println(arrNumb[i]);
+            }
+        }
     }
 }
