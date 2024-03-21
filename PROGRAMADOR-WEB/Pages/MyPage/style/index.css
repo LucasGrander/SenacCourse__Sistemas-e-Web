@@ -11,8 +11,6 @@
 
 body{
     background-color: #1c1c1c;
-    width: 100%;
-    height: 100vh;
     overflow: hidden;
 }
 
@@ -32,7 +30,7 @@ body{
 /*------------------BARRA DE NAVEGAÇÃO SUPERIOR:------------------------------*/
 nav{
     width: 100%;
-    height: 20%;
+    height: 15%;
     display: flex;
 
     font-weight: 600;
@@ -52,11 +50,11 @@ nav{
 }
 
 .logo span{
-    font-size: 30px;
+    font-size: 4vh;
 }
 
 ul{
-    width: 50%;
+    width: 100vh;
     height: 50px;
 
     display: flex;
@@ -66,7 +64,7 @@ ul{
     list-style-type: none;
 }
  ul li{
-    font-size: 25px;
+    font-size: 3.5vh;
     transition: .2s;
  }
 
@@ -91,9 +89,8 @@ ul li a:hover{
 }
 
 /*-----------------------CENTRO DO PROJETO (HEADER)-------------------------------*/
-header{
+section{
     width: 100%;
-    height: 100vh;
     
     display: flex;
     flex-direction: column;
@@ -103,6 +100,7 @@ header{
     font-weight: 900;
     background-color: #1c1c1c;
     gap: 5%;
+    margin-top: 2vh;
 }
 
 .mid-content{
@@ -127,8 +125,8 @@ header{
 }
 
 .left img{
-    width: 450px;
-    height: 450px;
+    width: 30vw;
+    height: 60vh;
 
     border-radius: 50%;
     border: solid 10px rgb(70, 70, 70);
@@ -147,31 +145,31 @@ header{
     flex-direction: column;
 }
 .right .name-box{
-    width: 670px;
+    width: 80vh;
     height: 80%;
 
     display: flex;
     flex-direction: column;
 
 
-    font-size: 70px;
+    font-size: 10vh;
     letter-spacing: 20px;
 }
 
 .right .name-box .name{
-    margin-top: 0px;
+    width: 100%;
     text-align: left;
     animation: writeEffect 5s steps(300) normal;
     overflow: hidden;
 
-    text-shadow: 5px 7px 1px rgb(0, 0, 0)
+    text-shadow: 1vh 1vh 1px rgb(0, 0, 0)
 }
 .right .name-box .apelid{
+    width: 100%;
     text-align: right;
     animation: writeEffect 5s steps(300) normal;
     overflow: hidden;
-
-    text-shadow: 5px 7px 1px rgb(0, 0, 0)
+    text-shadow: 1vh 1vh 1px rgb(0, 0, 0)
 }
 
 .right .icons{
@@ -179,12 +177,12 @@ header{
     justify-content: space-evenly;
     align-items: center;
 
-    margin-top: 50px;
+    margin-top: 7vh;
 }
 
 .right .icons img{
-    width: 50px;
-    height: 50px;
+    width: 7vh;
+    height: 7vh;
     filter: grayscale(100%);
     transition: .3s;
     filter: drop-shadow(0 3px 0px rgba(0, 0, 0));
@@ -196,7 +194,7 @@ header{
 }
 
 .wap, .linkd, .git{
-    height: 20px;
+    height: 3vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,8 +214,9 @@ header{
 }
 
 .footer-content{
-    width: 630px;
-    height: 50px;
+    margin-top: 5vh;
+    width: 680px;
+    height: 7vh;
 
     display: flex;
     justify-content: center;
@@ -231,7 +230,7 @@ header{
     display: flex;
     text-align: center;
 
-    font-size:  35px;
+    font-size:  5vh;
     letter-spacing: 25px;
 
     border-right: solid 3px rgb(255, 255, 255);
@@ -241,21 +240,21 @@ header{
     overflow: hidden;
 }
 
-header .arrow{
+section .arrow{
     position: absolute;
     right: 100px;
     bottom: 75px;
-    width: 150px;
-    height: 100px;
+    width: 12vh;
+    height: 10vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-header .arrow img{
+section .arrow img{
     border-radius: 50%;
-    border: solid 4px #0F0F0F;
+    border: solid .6vh #0F0F0F;
     background-color: rgb(70, 70, 70);
 
     position: absolute;
@@ -263,16 +262,16 @@ header .arrow img{
 
 
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 7vh;
+    height: 7vh;
 }
 
 .arrow span{
     color: rgba(136, 136, 136, 0.554);
-    font-size: 15px;
+    font-size: 2vh;
     font-weight: 800;
     position: absolute;
-    top: 20px;
+    top: 0px;
     animation: piscaEffect 1s infinite alternate;
 }
 
@@ -290,7 +289,7 @@ header .arrow img{
     height: 100%;
     background-color: #2b2b2b;
     
-    animation: pageEffect 1s ease-in forwards;
+    animation: pageEffect .7s ease-in-out forwards;
 }
 
 /* anime para os icons */

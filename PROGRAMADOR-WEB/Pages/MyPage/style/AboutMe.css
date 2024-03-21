@@ -1,268 +1,218 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-* {
+*{
     margin: 0;
     padding: 0;
     outline: none;
     box-sizing: border-box;
-    font-family: 'Poppins';
+    font-family:'Poppins';
     color: white;
 }
 
-body {
+body{
     background-color: #1c1c1c;
+    overflow: hidden;
 }
 
-.container {
+.container{
     z-index: 0;
-    border: solid 20px rgb(70, 70, 70);
+    border-right: solid 30px rgb(70, 70, 70);
+    border-left: solid 30px rgb(70, 70, 70);
+    border-top: solid 20px rgb(70, 70, 70);
+    border-bottom: solid 20px rgb(70, 70, 70);
+
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
 }
 
-nav {
-    height: 10%;
+/*------------------BARRA DE NAVEGAÇÃO SUPERIOR:------------------------------*/
+nav{
+    width: 100%;
+    height: 15%;
     display: flex;
-    align-items: center;
+
+    font-weight: 600;
     background-color: #1c1c1c;
+
+    justify-content: space-between;
+    align-items: center;
 }
 
-.logo {
-    flex: 1;
+.logo{
+    width: 20%;
+    height: 50px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logo span {
-    font-size: 1.5rem;
+.logo span{
+    font-size: 4vh;
 }
 
-ul {
-    flex: 1;
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-}
-
-ul li {
-    font-size: 1rem;
-    transition: .2s;
-}
-
-ul li:hover {
-    transform: scale(1.1);
-}
-
-ul li a {
-    text-decoration: none;
-    color: #8e8e8e;
-    transition: .2s;
-    text-shadow: 0 2px 2px black;
-}
-
-ul li a:hover {
-    color: #ffffff;
-}
-
-.activedoc a {
-    color: white;
-}
-
-header {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: 900;
-    background-color: #1c1c1c;
-    gap: 5%;
-}
-
-.mid-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
-
-.left img {
-    width: 20vw;
-    height: 20vw;
-    border-radius: 50%;
-    border: solid 10px rgb(70, 70, 70);
-    box-shadow: 0px 0px 10px rgb(255, 255, 255);
-}
-
-.right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
-
-.right .name-box {
-    max-width: 50vw;
-    font-size: 3vw;
-    letter-spacing: 1vw;
-    text-align: center;
-}
-
-.right .icons {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 1rem;
-}
-
-.right .icons img {
-    width: 5vw;
-    height: 5vw;
+.right .icons img{
+    width: 7vh;
+    height: 7vh;
     filter: grayscale(100%);
     transition: .3s;
     filter: drop-shadow(0 3px 0px rgba(0, 0, 0));
+    animation: iconsEffect 2s infinite alternate;
 }
 
-.right .icons img:hover {
+.right .icons img:hover{
     filter: grayscale(0);
 }
 
-.footer-content {
-    flex: 1;
+.wap, .linkd, .git{
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wap:hover{
+    filter: drop-shadow(0 3px 1px rgb(0, 255, 0));
+    transition: .1s;
+}
+.linkd:hover{
+    filter: drop-shadow(0 3px 1px skyblue);
+    transition: .1s;
+}
+.git:hover{
+    filter: drop-shadow(0 3px 1px rgb(255, 255, 255));
+    transition: .1s;
+}
+
+.footer-content{
+    margin-top: 5vh;
+    width: 680px;
+    height: 7vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.footer-content .position {
+.footer-content .position{
+    width: 100%;
+    height: 100%;
+
     display: flex;
-    font-size: 2.5vw;
-    letter-spacing: 2vw;
-    border-right: solid 0.15vw rgb(255, 255, 255);
+    text-align: center;
+
+    font-size:  5vh;
+    letter-spacing: 25px;
+
+    border-right: solid 3px rgb(255, 255, 255);
     animation: writeEffect 5s steps(30) infinite alternate, cursorEffect 800ms infinite normal;
+
     white-space: nowrap;
     overflow: hidden;
 }
 
-header .arrow {
+section .arrow{
     position: absolute;
-    right: 5vw;
-    bottom: 5vh;
+    right: 100px;
+    bottom: 75px;
+    width: 12vh;
+    height: 10vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-header .arrow img {
+section .arrow img{
     border-radius: 50%;
-    border: solid 0.4vw #0F0F0F;
+    border: solid .6vh #0F0F0F;
     background-color: rgb(70, 70, 70);
-    width: 5vw;
-    height: 5vw;
+
+    position: absolute;
+    bottom: 0;
+
+
     cursor: pointer;
+    width: 7vh;
+    height: 7vh;
 }
 
-.arrow span {
+.arrow span{
     color: rgba(136, 136, 136, 0.554);
-    font-size: 1.5vw;
+    font-size: 2vh;
     font-weight: 800;
     position: absolute;
-    top: 2vw;
+    top: 0px;
     animation: piscaEffect 1s infinite alternate;
 }
 
-.cima {
+.cima{
     transform: rotate(90deg);
 }
 
-.overlay {
+.baixo{
+    transform: rotate(180deg);
+}
+
+
+.overlay{
     position: absolute;
     top: 0;
     right: 0;
     z-index: 1;
+
     width: 0;
     height: 100%;
     background-color: #2b2b2b;
-    animation: pageEffect 1s ease-in forwards;
+    
+    animation: pageEffect .7s ease-in-out forwards;
 }
 
-@keyframes iconsEffect {
-    from {
+/* anime para os icons */
+@keyframes iconsEffect{
+    from{
         transform: rotate(-10deg);
     }
-    to {
+    to{
         transform: rotate(10deg);
     }
 }
 
-@keyframes pageEffect {
-    from {
+/* animações da página */
+@keyframes pageEffect{
+    from{
         width: 100%;
     }
-    to {
+    to{
         width: 0;
     }
 }
 
-@keyframes writeEffect {
-    from {
+@keyframes writeEffect{
+    from{
         width: 0;
     }
-    to {
+    to{
         width: 100%;
     }
 }
 
-@keyframes cursorEffect {
-    to {
+@keyframes cursorEffect{
+    to{
         border-color: transparent;
     }
-    from {
-        border-color: rgb(255, 255, 255);
+    from{
+        border-color: rgb(255, 255, 255)
     }
 }
 
-@keyframes piscaEffect {
-    to {
+@keyframes piscaEffect{
+    to{
         color: transparent;
     }
-    from {
+    from{
         color: rgb(121, 121, 121);
     }
-}
-
-/* Estilo para as letras animadas */
-
-.w {
-    text-shadow: 1px 3px 3px rgba(255, 0, 0);
-}
-
-.e {
-    text-shadow: 1px 3px 3px rgba(11, 120, 208, 0.5);
-}
-
-.b {
-    text-shadow: 1px 3px 3px rgba(77, 255, 0, 0.5);
-}
-
-.space {
-    visibility: hidden;
-}
-
-.d {
-    text-shadow: 1px 3px 3px rgb(0, 81, 255);
-}
-
-.ev {
-    text-shadow: 1px 3px 3px rgba(180, 250, 220, 0.5);
-}
-
-.v {
-    text-shadow: 1px 3px 3px rgba(143, 81, 230, 0.5);
-}
-
-.el {
-    text-shadow: 1px 3px 3px rgba(255, 0, 0, 0.5)
 }

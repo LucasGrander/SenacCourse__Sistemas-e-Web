@@ -64,8 +64,8 @@ const arrowMainIndex = document.getElementById('baixo');
     arrowMainPage.onclick = function(){
         const overlay = document.getElementById("overlay");
 
-        overlay.style.animation = "cortinaPagina 1s ease-in-out forwards"
+        overlay.style.animation = "cortinaPagina .7s ease-in forwards"
         setTimeout(() =>{
             window.location.href = "../html/index.html"
-        }, 1000)
+        }, 800)
     }

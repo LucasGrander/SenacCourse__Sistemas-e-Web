@@ -15,15 +15,15 @@ sr.reveal('header .mid-content .left',{
 
 sr.reveal('.icons .git',{
     rotate: {x: 1000, y: 100, z: 3000},
-    duration: 7000
+    duration: 4000
 })
 sr.reveal('.icons .linkd',{
     rotate: {x: 1000, y: 100, z: 3000},
-    duration: 7000
+    duration: 4000
 })
 sr.reveal('.icons .wap',{
     rotate: {x: 1000, y: 100, z: 3000},
-    duration: 7000
+    duration: 4000
 })
 
 
@@ -72,8 +72,8 @@ const arrowMainIndex = document.getElementById('baixo');
     arrowMainPage.onclick = function(){
         const overlay = document.getElementById("overlay");
 
-        overlay.style.animation = "cortinaPagina 1s ease-in-out forwards"
+        overlay.style.animation = "cortinaPagina .7s ease-in forwards"
         setTimeout(() =>{
             window.location.href = "../html/AboutMe.html"
-        }, 1000)
+        }, 800)
     }
