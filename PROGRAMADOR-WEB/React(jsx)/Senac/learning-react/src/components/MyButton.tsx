@@ -2,13 +2,14 @@ import { ReactNode } from 'react';
 import './MyButton.css'
 
 interface Props{
-    children: ReactNode;
-    onClick: () => void;
+    children?: ReactNode;
+    onClick?: () => void;
+    width?: string;
 }
 
-function MyButton({children, onClick}: Props){
+function MyButton({children, onClick, width}: Props){
     return(
-        <button onClick={onClick}>{children}</button>
+        <button style={{width:`${width}`}} onClick={onClick}>{children}</button>
     );
 }
 

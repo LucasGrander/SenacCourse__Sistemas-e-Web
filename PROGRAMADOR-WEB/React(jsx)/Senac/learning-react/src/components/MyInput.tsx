@@ -26,6 +26,7 @@ function MyInput(props : Props) {
       placeholder ={ props.ph}
       value = {props.value}
       onChange={props.onChange}
+      style={{color: `${props.fontColor}`}}
       />
     )
   }
