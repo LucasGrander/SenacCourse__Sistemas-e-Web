@@ -11,15 +11,10 @@
 
 body{
     background-color: #1c1c1c;
-    overflow: hidden;
 }
 
 .container{
     z-index: 0;
-    border-right: solid 30px rgb(70, 70, 70);
-    border-left: solid 30px rgb(70, 70, 70);
-    border-top: solid 20px rgb(70, 70, 70);
-    border-bottom: solid 20px rgb(70, 70, 70);
 
     display: flex;
     flex-direction: column;
@@ -29,29 +24,114 @@ body{
 
 /*------------------BARRA DE NAVEGAÇÃO SUPERIOR:------------------------------*/
 nav{
-    width: 100%;
+    width:100%;
     height: 15%;
+    
     display: flex;
-
-    font-weight: 600;
-    background-color: #1c1c1c;
-
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
+
+    font-weight: 900;
+    
 }
 
 .logo{
-    width: 20%;
-    height: 50px;
+    width: 50%;
+    height: 100%;
+
+    border-bottom-left-radius: 7vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(23, 23, 23);
+    border-bottom: solid .2vh white;
+    box-shadow: 0 1px 8px rgb(0, 0, 0);
 }
 
-.logo span{
-    font-size: 4vh;
+.logo p{
+    letter-spacing: 3vh;
+    font-size: 7.5vh;
+    text-shadow: 3px 4px 1px black;
 }
+
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 1000px;
+}
+
+main{
+    width: 100%;
+    height: 1000px;
+}
+
+.sidebar{
+    width: 15vh;
+    height: 100%;
+    position: fixed;
+
+    border-right: 7px black solid;
+}
+
+.sidebar .content-sidebar{
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: rgb(23, 23, 23);
+    justify-content: center;
+    gap: 90px;
+}
+
+.sidebar .content-sidebar .profile-pic,
+.sidebar .content-sidebar .diploma-pic,
+.sidebar .content-sidebar .lamp-pic{
+    width: 100%;
+    height: 12vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.sidebar .content-sidebar .profile-pic:hover,
+.sidebar .content-sidebar .diploma-pic:hover,
+.sidebar .content-sidebar .lamp-pic:hover{
+    background-color: #00000089;
+    transition: .2s;
+}
+
+.sidebar .content-sidebar img{
+    width: 9vh;
+    height: 9vh;
+    filter: drop-shadow( 2px 4px 1px black);
+}
+
+
+
+.mid-content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left{
+    width: 15vh;
+}
+
+.right{
+    width: 85vh;
+}
+
 
 .right .icons img{
     width: 7vh;
@@ -62,61 +142,10 @@ nav{
     animation: iconsEffect 2s infinite alternate;
 }
 
-.right .icons img:hover{
-    filter: grayscale(0);
-}
-
-.wap, .linkd, .git{
-    height: 3vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.wap:hover{
-    filter: drop-shadow(0 3px 1px rgb(0, 255, 0));
-    transition: .1s;
-}
-.linkd:hover{
-    filter: drop-shadow(0 3px 1px skyblue);
-    transition: .1s;
-}
-.git:hover{
-    filter: drop-shadow(0 3px 1px rgb(255, 255, 255));
-    transition: .1s;
-}
-
-.footer-content{
-    margin-top: 5vh;
-    width: 680px;
-    height: 7vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-content .position{
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    text-align: center;
-
-    font-size:  5vh;
-    letter-spacing: 25px;
-
-    border-right: solid 3px rgb(255, 255, 255);
-    animation: writeEffect 5s steps(30) infinite alternate, cursorEffect 800ms infinite normal;
-
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-section .arrow{
+.arrow{
     position: absolute;
-    right: 100px;
-    bottom: 75px;
+    left: 1vh;
+    top: 1vh;
     width: 12vh;
     height: 10vh;
 
@@ -125,13 +154,13 @@ section .arrow{
     justify-content: center;
 }
 
-section .arrow img{
+.arrow img{
     border-radius: 50%;
     border: solid .6vh #0F0F0F;
     background-color: rgb(70, 70, 70);
 
     position: absolute;
-    bottom: 0;
+    bottom: 0vh;
 
 
     cursor: pointer;
@@ -214,5 +243,23 @@ section .arrow img{
     }
     from{
         color: rgb(121, 121, 121);
+    }
+}
+
+@keyframes letterIOne{
+    from{
+        transform: rotate(-55deg);
+    }
+    to{
+        transform: rotate(55deg);
+    }
+}
+
+@keyframes letterITwo{
+    from{
+        transform: rotate(-15deg);
+    }
+    to{
+        transform: rotate(15deg);
     }
 }

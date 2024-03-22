@@ -69,3 +69,25 @@ const arrowMainIndex = document.getElementById('baixo');
             window.location.href = "../html/index.html"
         }, 800)
     }
+
+    const sideBarProfile = document.getElementById("profile-pic");
+        sideBarProfile.onclick = function(){
+            sideBarProfile.style.borderRight = "solid 7px white";
+            sideBarProfile.style.backgroundColor = "#0000004d";
+            sideBarProfile.style.transition = ".3s";
+        }
+
+    const sideBarDiploma = document.getElementById("diploma-pic");
+        sideBarDiploma.onclick = function(){
+            sideBarDiploma.style.borderRight = "solid 7px white";
+            sideBarDiploma.style.backgroundColor = "#0000004d";
+            sideBarDiploma.style.transition = ".3s";
+        }
+
+    const sideBarLamp = document.getElementById("lamp-pic");
+        sideBarLamp.onclick = function(){
+            sideBarLamp.style.borderRight = "solid 7px white";
+            sideBarLamp.style.backgroundColor = "#0000004d";
+            sideBarLamp.style.transition = ".3s";
+
+        }
