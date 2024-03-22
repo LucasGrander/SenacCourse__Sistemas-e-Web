@@ -75,6 +75,21 @@ const arrowMainIndex = document.getElementById('baixo');
             sideBarProfile.style.borderRight = "solid 7px white";
             sideBarProfile.style.backgroundColor = "#0000004d";
             sideBarProfile.style.transition = ".3s";
+
+            sideBarProfile.onmouseenter = function(){
+                sideBarProfile.style.backgroundColor = "#0000004d"
+            }
+    
+            sideBarProfile.onmouseleave = function(){
+                sideBarProfile.style.backgroundColor = "transparent"
+            }
+
+
+            sideBarDiploma.style.borderRight = "none";
+            sideBarDiploma.style.backgroundColor = "transparent";
+
+            sideBarLamp.style.borderRight = "none";
+            sideBarLamp.style.backgroundColor = "transparent";
         }
 
     const sideBarDiploma = document.getElementById("diploma-pic");
@@ -82,6 +97,12 @@ const arrowMainIndex = document.getElementById('baixo');
             sideBarDiploma.style.borderRight = "solid 7px white";
             sideBarDiploma.style.backgroundColor = "#0000004d";
             sideBarDiploma.style.transition = ".3s";
+
+            sideBarProfile.style.borderRight = "none";
+            sideBarProfile.style.backgroundColor = "transparent";
+
+            sideBarLamp.style.borderRight = "none";
+            sideBarLamp.style.backgroundColor = "transparent";
         }
 
     const sideBarLamp = document.getElementById("lamp-pic");
@@ -90,4 +111,9 @@ const arrowMainIndex = document.getElementById('baixo');
             sideBarLamp.style.backgroundColor = "#0000004d";
             sideBarLamp.style.transition = ".3s";
 
+            sideBarProfile.style.borderRight = "none";
+            sideBarProfile.style.backgroundColor = "transparent";
+
+            sideBarDiploma.style.borderRight = "none";
+            sideBarDiploma.style.backgroundColor = "transparent";
         }
