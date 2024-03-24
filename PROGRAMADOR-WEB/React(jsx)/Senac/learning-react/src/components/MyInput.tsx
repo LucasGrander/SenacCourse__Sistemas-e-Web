@@ -6,6 +6,9 @@ interface Props{
 
   value?: string;
 
+  width?: string;
+  height?: string;
+  
   bgColor?: string;
   fontColor?: string;
 
@@ -26,7 +29,12 @@ function MyInput(props : Props) {
       placeholder ={ props.ph}
       value = {props.value}
       onChange={props.onChange}
-      style={{color: `${props.fontColor}`}}
+      
+      style={{
+        color: `${props.fontColor}`,
+        backgroundColor: `${props.bgColor}`,
+        width:`${props.width}`, 
+        height:`${props.height}`,}}
       />
     )
   }
