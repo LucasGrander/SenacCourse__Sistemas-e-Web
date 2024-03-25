@@ -48,7 +48,11 @@ const Login = () => {
 
             <MyInput fontColor="white" onChange={(e) => setPassword(e.target.value)} value={loginFail ? "" : password} type="password" ph="Senha" />
 
-            <MyButton width="50%" children="Entrar" onClick={handleOnClick} />
+            <MyButton
+            width="50%"
+            height="30px"
+            children="Entrar"
+            onClick={handleOnClick} />
             </div>
         </div>
     )

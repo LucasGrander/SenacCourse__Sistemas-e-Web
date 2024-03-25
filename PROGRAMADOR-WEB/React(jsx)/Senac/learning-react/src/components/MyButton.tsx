@@ -5,11 +5,14 @@ interface Props{
     children?: ReactNode;
     onClick?: () => void;
     width?: string;
+    height?: string;
 }
 
-function MyButton({children, onClick, width}: Props){
+function MyButton({children, onClick, width, height}: Props){
     return(
-        <button style={{width:`${width}`}} onClick={onClick}>{children}</button>
+        <button
+        style={{width:`${width}`, height:`${height}`}}
+        onClick={onClick}>{children}</button>
     );
 }
 

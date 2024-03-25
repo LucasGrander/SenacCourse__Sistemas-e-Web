@@ -110,6 +110,13 @@ main{
     transition: .2s;
 }
 
+.sidebar .content-sidebar .profile-pic:focus,
+.sidebar .content-sidebar .diploma-pic:focus,
+.sidebar .content-sidebar .lamp-pic:focus{
+    background-color: #00000089;
+    transition: .2s;
+}
+
 .sidebar .content-sidebar img{
     width: 9vh;
     height: 9vh;

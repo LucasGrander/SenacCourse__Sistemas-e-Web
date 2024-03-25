@@ -76,15 +76,6 @@ const arrowMainIndex = document.getElementById('baixo');
             sideBarProfile.style.backgroundColor = "#0000004d";
             sideBarProfile.style.transition = ".3s";
 
-            sideBarProfile.onmouseenter = function(){
-                sideBarProfile.style.backgroundColor = "#0000004d"
-            }
-    
-            sideBarProfile.onmouseleave = function(){
-                sideBarProfile.style.backgroundColor = "transparent"
-            }
-
-
             sideBarDiploma.style.borderRight = "none";
             sideBarDiploma.style.backgroundColor = "transparent";
 
