@@ -20,14 +20,15 @@ const Login = () => {
     //     setPassword(e.target.value)
     // }
 
+    const recep = document.getElementById("recep");
 
     const handleOnClick = () =>{
         if(user === "Lucas" && password === "1234") { 
-            alert("Seja bem vindo, " + user);
+            recep.textContent = `Seja Bem-Vindo, ${user}`
 
             setTimeout(() =>{
                 navigate("/to-do-list");
-            }, 500)
+            }, 2000)
         }
 
         else{
@@ -53,6 +54,8 @@ const Login = () => {
             height="30px"
             children="Entrar"
             onClick={handleOnClick} />
+
+            <p id="recep">{}</p>
             </div>
         </div>
     )

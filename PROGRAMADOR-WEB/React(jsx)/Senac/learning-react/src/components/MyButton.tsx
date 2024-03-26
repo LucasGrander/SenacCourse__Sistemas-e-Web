@@ -12,7 +12,8 @@ function MyButton({children, onClick, width, height}: Props){
     return(
         <button
         style={{width:`${width}`, height:`${height}`}}
-        onClick={onClick}>{children}</button>
+        onClick={onClick}>{children}
+        </button>
     );
 }
 
