@@ -20,7 +20,6 @@ public class Exemplo5 {
         Scanner s = new Scanner (System.in);
         
         Boolean  continuar = true;
-        Boolean retornar = true;
         // Nessa parte do código temos as opções de operação, onde o cliente/usuário irá selecionar através de um número ( 1 - 4 )
             while(continuar){
                     System.out.println("===================================================");
@@ -46,10 +45,10 @@ public class Exemplo5 {
                             "2 - Subtracao\n" +
                             "3 - Multiplicacao\n" +
                             "4 - Divisao\n");
-
+                    opcao = s.nextInt();
                     System.out.println("----------------------------------------------------------------------------");
                         }
-                    opcao = s.nextInt();
+                    
                 // O usuário irá entrar com um valor que deseja na operação... Também logo abaixo temos a variável ( float num1 ) sendo atribuida, a mesma coisa ocorre nas linhas 46 e 47, só que com o ( float num2 )
                 System.out.println("===================================================");
                 System.out.println("Informe o primeiro numero: ");
