@@ -1,3 +1,4 @@
+
 var resultArea = document.getElementById("result-area");
 
 //ON e OFF -- teste
