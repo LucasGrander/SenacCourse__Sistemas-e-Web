@@ -78,8 +78,12 @@ public class CadastroDePessoas {
     }
     
 //personalized messages
+    public String toString() {
+        return "Nome=" + nome + " | CPF=" + cpf + " | RG=" + rg + " | Idade=" + idade + " | Bairro=" + bairro + " | Rua=" + rua + " | Numero da Casa=" + numCasa + '}';
+    }
+    
     public String infomationPerson() {
-        return "nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", idade=" + idade + '}';
+        return "Nome=" + nome + " | CPF=" + cpf + " | RG=" + rg + " | Idade=" + idade + '}';
     }
     
     public String nomeOnly() {
@@ -87,7 +91,7 @@ public class CadastroDePessoas {
     }
     
     public String locationPerson() {
-        return "CadastroDePessoas{" + "nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", idade=" + idade + '}';
+        return "CadastroDePessoas{" + "Bairro=" + bairro + " | Rua=" + rua + " | Numero da Casa=" + numCasa + '}';
     }
 
   public CadastroDePessoas() {

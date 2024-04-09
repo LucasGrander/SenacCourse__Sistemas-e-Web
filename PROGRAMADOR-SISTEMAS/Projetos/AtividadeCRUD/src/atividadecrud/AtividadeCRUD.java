@@ -2,6 +2,7 @@ package atividadecrud;
 
 import com.my.company.cadastrodepessoas.CadastroDePessoas;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -66,7 +67,7 @@ public class AtividadeCRUD {
                         alterar(cadasterList);
                     }
                     else{
-                        System.out.println("Nao ha pessoas cadastradas para alterar");
+                        System.out.println("Nao ha clientes cadastradas para alterar");
                     }
                     
                 }
@@ -75,12 +76,12 @@ public class AtividadeCRUD {
                           remover(cadasterList);
                       }
                       else{
-                          System.out.println("Nao ha pessoas cadastradas para remover");
+                          System.out.println("Nao ha clientes cadastradas para remover");
                       }
                   }
                   
                 else if(admAction == 4){
-                       break;
+                       voltar(cadasterList);
                 }
                    else{
                        System.exit(0);
@@ -133,7 +134,9 @@ public class AtividadeCRUD {
         }
     }
     
-    // acoes do cadastro 
+    
+    
+     //-----------------------------------------------------CADASTRAR------------------------------------------------------------------
     
     public static void cadastrar(ArrayList<CadastroDePessoas> lista) {
         Scanner s = new Scanner(System.in);
@@ -163,12 +166,12 @@ public class AtividadeCRUD {
             System.out.println("------------------");
             System.out.println("Idade:");
             idade = s.nextInt();
+            s.nextLine();
             System.out.println("");
             
             System.out.println("------------------");
             System.out.println("CPF (somente numeros):");
             cpf = s.nextLine();
-            s.nextLine();
             System.out.println("");
             
             System.out.println("------------------");
@@ -200,12 +203,18 @@ public class AtividadeCRUD {
             lista.add(new CadastroDePessoas(nome, cpf, rg, bairro, rua, numCasa, idade));
             
             System.err.println("Pessoa cadastrada com sucesso!");
+            System.out.println("------------------------------------------------------");
+            System.out.println("");
         }
         catch(Exception e){
             System.out.println("Error...");
         }
     }
     
+    
+    
+    
+     //-----------------------------------------------------ALTERAR------------------------------------------------------------------
     
     
     public static void alterar(ArrayList<CadastroDePessoas> lista) {
@@ -245,7 +254,7 @@ public class AtividadeCRUD {
             
             System.out.println("""
                                
-                               novas informacoes pessoais:
+                               Novas Informacoes Pessoais:
                                
                                """);
             System.out.println("-----------------------------------------");
@@ -320,25 +329,96 @@ public class AtividadeCRUD {
         }
     }
     
+    
+    
+    //-----------------------------------------------------REMOVER------------------------------------------------------------------
+
+    
     public static void remover(ArrayList<CadastroDePessoas> lista) {
         Scanner s = new Scanner(System.in);
-        System.out.println("removendo...");
+        
+        try {
+            String nomeSelected;
+            
+            System.out.println("""
+                               ***REMOCAO DE INFORMACOES***
+                               
+                               Selecione uma pessoa pelo seu nome completo:
+                               """);
+            
+            System.out.println("Lista de nomes:");
+            for(CadastroDePessoas select : lista){
+                System.out.println("");
+                System.out.println(select.nomeOnly());
+                System.out.println("");
+            }
+            nomeSelected = s.nextLine();
+            
+            
+             Optional<CadastroDePessoas> choosedRemove = lista.stream().filter(select -> select.getNome().toLowerCase().equals(nomeSelected.toLowerCase())).findFirst() ;
+            System.out.println("Pessoa selecionada: " + "'" + choosedRemove.get().nomeOnly() + "'" + " Deseja concluir a remocao? ( S / N )") ;
+            System.out.println("-------------------------------------");
+            System.out.println("");
+            String opcaoRemove = s.nextLine();
+            
+            if(opcaoRemove.toLowerCase().equals("s")){
+                lista.remove(choosedRemove.get());
+                System.out.println("Cliente '" + choosedRemove.get().nomeOnly()+ "' removido com sucesso!");
+            }
+            else{
+                System.out.println("");
+            }
+            
+        } catch (NoSuchElementException e) {
+            System.out.println("Esse item nao foi encontrado");
+        }
+        catch (Exception e) {
+            System.out.println("Erro ao tentar executar a acao de deletar");
+        }
     }
     
-    // infos para printar
+    
+    
+    //-----------------------------------------------------LISTAR OS CLIENTES------------------------------------------------------------------
+    
 
     public static void fullCadaster(ArrayList<CadastroDePessoas> lista) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("full infos...");
+        System.out.println("""
+                           
+                               ***LISTAGEM COMPLETA DE INFORMACOES***
+                           
+                               """);
+        
+        for (CadastroDePessoas p : lista) {
+            System.out.println(p.toString());
+        }
     }
     
     public static void personalCadaster(ArrayList<CadastroDePessoas> lista) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("pessoal infos...");
+        System.out.println("""
+                           
+                               ***LISTAGEM INFOS PESSOAIS***
+                           
+                               """);
+        
+        for (CadastroDePessoas p : lista) {
+            System.out.println(p.infomationPerson());
+        }
     }
     
     public static void addresCadaster(ArrayList<CadastroDePessoas> lista) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("endereco infos...");
+        System.out.println("""
+                           
+                               ***LISTAGEM DOS ENDERECOS***
+                           
+                               """);
+        
+        for (CadastroDePessoas p : lista) {
+            System.out.println(p.locationPerson());
+        }
+    }
+    
+    public static void voltar(ArrayList<CadastroDePessoas> lista) {
+        System.out.println("");
     }
 }
