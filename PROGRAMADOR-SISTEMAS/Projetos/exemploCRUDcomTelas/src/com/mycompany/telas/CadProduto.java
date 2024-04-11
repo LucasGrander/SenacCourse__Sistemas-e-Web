@@ -6,6 +6,7 @@ package com.mycompany.telas;
 
 import com.mycompany.bd.MemoryDataBase;
 import com.mycompany.outros.Formularios;
+import com.mycompany.outros.Temp;
 import com.mycompany.produtos.Produto;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -23,8 +24,63 @@ public class CadProduto extends javax.swing.JFrame {
         initComponents();
         proxId();
         jtfDescricao.requestFocus();
+        jtfId.setEnabled(false);
+        
+        verifyTempDados();
     }
-
+    
+    public void verifyTempDados(){
+        if(Temp.tempObj != null){
+            Produto p= (Produto) Temp.tempObj;
+            
+            jtfId.setText(String.valueOf(p.getId()));
+            jtfDescricao.setText(p.getDescricao());
+            jtfPreco.setText(String.valueOf(p.getPreco()));
+            
+            btnSalvar.setText("Alterar");
+            btnExcluir.setVisible(true);
+            btnCancelar.setVisible(true);
+        }
+        else{
+            btnSalvar.setText("Salvar");
+            btnExcluir.setVisible(false);
+            btnCancelar.setVisible(false);
+        }
+    }
+    
+    private void alterar(Produto p, String descricao, String preco, ArrayList<Produto> lista){
+        try{
+            Produto prodAlt = new Produto(p.getId(), descricao, Double.parseDouble(preco));
+            lista.set(p.getId(), prodAlt);
+            JOptionPane.showMessageDialog(null,  "Produto: " + "'" + p.getDescricao() + "'" + " alterado com sucesso!");
+            jtfDescricao.setText("");
+            jtfPreco.setText("");
+            Formularios.cadProduto.setVisible(false);
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Os campos não podem estar vazios!");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Os campos não podem estar vazios!");
+        }
+    }
+    
+    private void deletar(Produto p, ArrayList<Produto> lista){
+        try{
+            lista.remove(p);
+            jtfDescricao.setText("");
+            jtfPreco.setText("");
+            Formularios.cadProduto.setVisible(false);
+                        
+            JOptionPane.showMessageDialog(null,  "Produto: " + "'" + p.getDescricao() + "'" + " removido com sucesso!");
+            jtfDescricao.setText("");
+            jtfPreco.setText("");
+         }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao remover o produto. Motivo: " + e.getMessage());
+        }
+    }
+    
     private void proxId(){
         try{
             jtfId.setText(String.valueOf(MemoryDataBase.ListaProdutos.get(MemoryDataBase.ListaProdutos.size() -1 ) .getId() + 1));
@@ -34,7 +90,7 @@ public class CadProduto extends javax.swing.JFrame {
         }
     }
     
-    private void cadastrar(String descricao, Double preco, ArrayList<Produto> lista) {
+    private void cadastrar(String descricao, String preco, ArrayList<Produto> lista) {
         try {
             int id;
             try {
@@ -44,7 +100,7 @@ public class CadProduto extends javax.swing.JFrame {
             catch (IndexOutOfBoundsException e) {
                 id = 0;
             }
-            lista.add(new Produto(id, descricao, preco));
+            lista.add(new Produto(id, descricao, Double.valueOf(preco)));
             
             JOptionPane.showMessageDialog(null, "Produto " + "'" + descricao+ "'" + " cadastrado com sucesso");
             proxId();
@@ -52,10 +108,12 @@ public class CadProduto extends javax.swing.JFrame {
             jtfDescricao.requestFocus();
             jtfPreco.setText("");
         } 
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "O texto deve conter um valor numérico");
+        catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "O campos não podem estar vazios!");
         }
-
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "O campos não podem estar vazios!");
+        }
     }
 
     /**
@@ -75,6 +133,8 @@ public class CadProduto extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jtfPreco = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Produto");
@@ -115,21 +175,33 @@ public class CadProduto extends javax.swing.JFrame {
             }
         });
 
+        btnExcluir.setText("Excluir");
+        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jtfDescricao)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jtfId, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(0, 468, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jtfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jtfId, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnExcluir)))
+                .addGap(0, 283, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,10 +216,20 @@ public class CadProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jtfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jtfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,13 +238,19 @@ public class CadProduto extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCancelar)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 273, Short.MAX_VALUE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -170,7 +258,7 @@ public class CadProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jtfIdActionPerformed
 
     private void jtfDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDescricaoActionPerformed
@@ -178,12 +266,46 @@ public class CadProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfDescricaoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        cadastrar(jtfDescricao.getText(), Double.parseDouble(jtfPreco.getText().replace(",", ".")), MemoryDataBase.ListaProdutos);
+        // cadastrar(jtfDescricao.getText(), Double.parseDouble(jtfPreco.getText().replace(",", ".")), MemoryDataBase.ListaProdutos);
+        
+        if(Temp.tempObj == null){
+            cadastrar(jtfDescricao.getText(),jtfPreco.getText().replace(",", "."), MemoryDataBase.ListaProdutos);
+            
+           if(Formularios.listProduto != null)
+               ((ListProduto) Formularios.listProduto).listar(MemoryDataBase.ListaProdutos);
+           
+           Temp.Limpar();
+           
+           verifyTempDados();
+        }
+        else{
+            alterar((Produto) Temp.tempObj , jtfDescricao.getText(), jtfPreco.getText().replace(",", "."), MemoryDataBase.ListaProdutos);
+            
+             if(Formularios.listProduto != null)
+               ((ListProduto) Formularios.listProduto).listar(MemoryDataBase.ListaProdutos);
+           
+           Temp.Limpar();
+           
+           verifyTempDados();
+           
+           proxId();
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         Formularios.cadProduto = null;
     }//GEN-LAST:event_formWindowClosed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        if(JOptionPane.showConfirmDialog(null, "Deseja excluir esse produto: " + "' "+ jtfDescricao.getText() + " '"  + " ?\n" + "OBS: A ação não poderá ser revertida.") == JOptionPane.YES_OPTION){
+            deletar((Produto) Temp.tempObj, MemoryDataBase.ListaProdutos);
+            
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        Formularios.cadProduto.setVisible(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +343,8 @@ public class CadProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

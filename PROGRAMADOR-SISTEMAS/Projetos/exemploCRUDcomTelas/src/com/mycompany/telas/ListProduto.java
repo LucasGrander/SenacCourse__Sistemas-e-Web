@@ -6,8 +6,11 @@ package com.mycompany.telas;
 
 import com.mycompany.bd.MemoryDataBase;
 import com.mycompany.outros.Formularios;
+import com.mycompany.outros.Temp;
 import com.mycompany.produtos.Produto;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,11 +24,28 @@ public class ListProduto extends javax.swing.JFrame {
     public ListProduto() {
         initComponents();
         listar(MemoryDataBase.ListaProdutos);
+        verifOpcaoFiltro();
     }
     
-    private void listar(ArrayList<Produto> lista){
+    public void listar(ArrayList<Produto> lista){
+        DefaultTableModel defaultTableModel = (DefaultTableModel) jTableProdutos.getModel();
+        
+        defaultTableModel.setRowCount(0);
+         
+        
         for(Produto p : lista){
-            jtaListProduto.append(p.toString() + "\n");
+            defaultTableModel.addRow(new Object[] {p.getId(), p.getDescricao(), p.getPreco()});
+        }
+    }
+    
+    private void verifOpcaoFiltro(){
+        if(jcbFiltro.getSelectedIndex() == 0){
+            jtfFiltro.setEnabled(false);
+            jtfFiltro.setText("");
+        }
+        else{
+            jtfFiltro.setEnabled(true);
+            
         }
     }
 
@@ -43,7 +63,7 @@ public class ListProduto extends javax.swing.JFrame {
         jtfFiltro = new javax.swing.JTextField();
         btnFiltrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtaListProduto = new javax.swing.JTextArea();
+        jTableProdutos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Listagem de Produtos\n");
@@ -55,27 +75,50 @@ public class ListProduto extends javax.swing.JFrame {
 
         jPanel1.setForeground(new java.awt.Color(204, 204, 204));
 
-        jcbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "DESCRIÇÃO", "PREÇO MAIOR OU IGUAL A", "PREÇO MENOR OU IGUAL A" }));
+        jcbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "ID", "DESCRIÇÃO", "PREÇO MAIOR OU IGUAL A", "PREÇO MENOR OU IGUAL A" }));
+        jcbFiltro.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbFiltroItemStateChanged(evt);
+            }
+        });
 
         btnFiltrar.setText("Filtrar");
 
-        jtaListProduto.setEditable(false);
-        jtaListProduto.setColumns(20);
-        jtaListProduto.setRows(5);
-        jScrollPane1.setViewportView(jtaListProduto);
+        jTableProdutos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "DESCRIÇÃO", "PREÇO"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableProdutosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableProdutos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jcbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfFiltro)
+                        .addComponent(jtfFiltro, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -88,8 +131,8 @@ public class ListProduto extends javax.swing.JFrame {
                     .addComponent(jcbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFiltrar)
                     .addComponent(jtfFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -110,6 +153,32 @@ public class ListProduto extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         Formularios.listProduto = null;
     }//GEN-LAST:event_formWindowClosed
+
+    private void jcbFiltroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbFiltroItemStateChanged
+       verifOpcaoFiltro();
+    }//GEN-LAST:event_jcbFiltroItemStateChanged
+
+    private void jTableProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProdutosMouseClicked
+        if(evt.getClickCount() == 2){
+            Produto produto = new Produto();
+            
+            int linhaClicada = jTableProdutos.getSelectedRow();
+            produto.setId(Integer.parseInt(String.valueOf(jTableProdutos.getValueAt(linhaClicada, 0))));
+            produto.setDescricao(String.valueOf(jTableProdutos.getValueAt(linhaClicada, 1)));
+            produto.setPreco(Double.valueOf(String.valueOf(jTableProdutos.getValueAt(linhaClicada, 2))));
+            
+            Temp.tempObj = produto;
+
+            if(Formularios.cadProduto == null)
+                Formularios.cadProduto = new CadProduto();
+
+            
+            ((CadProduto) Formularios.cadProduto).verifyTempDados();
+            Formularios.cadProduto.setVisible(true);
+            Formularios.cadProduto.setExtendedState(JFrame.NORMAL);
+            Formularios.cadProduto.setLocationRelativeTo(null);
+        }
+    }//GEN-LAST:event_jTableProdutosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -150,8 +219,8 @@ public class ListProduto extends javax.swing.JFrame {
     private javax.swing.JButton btnFiltrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableProdutos;
     private javax.swing.JComboBox<String> jcbFiltro;
-    private javax.swing.JTextArea jtaListProduto;
     private javax.swing.JTextField jtfFiltro;
     // End of variables declaration//GEN-END:variables
 }

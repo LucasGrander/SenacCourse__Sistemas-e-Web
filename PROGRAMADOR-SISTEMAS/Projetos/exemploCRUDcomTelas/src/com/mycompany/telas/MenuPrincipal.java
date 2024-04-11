@@ -1,7 +1,7 @@
 package com.mycompany.telas;
 
+import com.mycompany.bd.MemoryDataBase;
 import com.mycompany.outros.Formularios;
-import com.sun.source.tree.ForLoopTree;
 import javax.swing.JOptionPane;
 
 public class MenuPrincipal extends javax.swing.JFrame {
@@ -11,6 +11,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);
+        
+        MemoryDataBase.carregarDadosExemplos();
     }
 
     @SuppressWarnings("unchecked")
@@ -88,19 +90,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastroActionPerformed
-        if(Formularios.cadProduto == null){
+        if(Formularios.cadProduto == null)
             Formularios.cadProduto = new CadProduto();
+        
             Formularios.cadProduto.setVisible(true);
+            Formularios.cadProduto.setExtendedState(NORMAL);
             Formularios.cadProduto.setLocationRelativeTo(null);
-        }
+            
     }//GEN-LAST:event_miCadastroActionPerformed
 
     private void miListagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miListagemActionPerformed
-        if(Formularios.listProduto == null){
+        if(Formularios.listProduto == null)
             Formularios.listProduto = new ListProduto();
+        
             Formularios.listProduto.setVisible(true);
+            Formularios.listProduto.setExtendedState(NORMAL);
             Formularios.listProduto.setLocationRelativeTo(null);
-        }
     }//GEN-LAST:event_miListagemActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
