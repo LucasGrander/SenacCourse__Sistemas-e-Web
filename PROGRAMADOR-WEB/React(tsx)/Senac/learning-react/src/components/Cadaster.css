@@ -1,0 +1,49 @@
+.cadasterMSG-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+}
+
+.cadasterMSG-container .msg{
+    width: 100%;
+    height: 5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginMSG-container .msg span{
+    font-size: 3vh;
+    font-weight: 600;
+
+    color: white;
+}
+
+.cadasterMSG-container .btn{
+    width: 100%;
+    height: 5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadasterMSG-container .btn button{
+    width: 50%;
+    height: 6vh;
+
+    border-radius: 10vh;
+    font-size: 3vh;
+    font-weight: 600;
+    background-color: transparent;
+    border: solid .1vh white;
+    cursor: pointer;
+
+    color: white;
+}

@@ -1,42 +1,73 @@
-import { ChangeEvent } from 'react';
+import { useState } from 'react';
 import './MyInput.css'
 
 interface Props{
+  onFocus?: () => void;
+  onClick?: () => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  maxlenght?: number;
   type?: string;
-
   value?: string;
+  id?: string;
+
+  className?: string;
+  enter?: string;
+  leave?: string;
 
   width?: string;
   height?: string;
+
+  cursor?: string;
+  display?: string;
+  justifyContent?: string;
+  alignItems?: string;
   
-  bgColor?: string;
-  fontColor?: string;
-
+  color?: string;
+  backgroundColor?: string;
+  border?: string;
+  borderBottom?: string;
+  borderRadius?: string;
+  boxShadow?: string;
+  padding?: string;
+  fontSize?: string;
+  fontWeight?: string;
+  transition?: string;
   ph?: string;
-  phColor?: string;
-
-  onChange?: (e : ChangeEvent<HTMLInputElement>) => void
+  outline?: string;
 }
 
+const MyInput = ({id, className, enter, leave, onClick, onChange, onFocus, onBlur, type, value, width, height, cursor, display, justifyContent, alignItems, border, borderBottom, borderRadius, color, padding, fontSize, boxShadow, fontWeight, transition, maxlenght, ph, outline }: Props) => {
 
-function MyInput(props : Props) {
+  const [hover, setHover] = useState(false)
+      const handleMouseEnter = () => {
+          setHover(true)
+      }
 
-  // const [isFocused, setIsFocused] = useState(false);
-
-    return (
-      <input
-      type = {props.type}
-      placeholder ={ props.ph}
-      value = {props.value}
-      onChange={props.onChange}
+      const handleMouseLeave = () => {
+          setHover(false)
+      }
       
-      style={{
-        color: `${props.fontColor}`,
-        backgroundColor: `${props.bgColor}`,
-        width:`${props.width}`, 
-        height:`${props.height}`,}}
+
+  const estiloInput: React.CSSProperties = {width, height, cursor, display, justifyContent, alignItems, backgroundColor: hover ? enter : leave, border, borderBottom, borderRadius, padding, fontSize, boxShadow, fontWeight, transition, color, outline }
+
+  return(
+      <input
+      placeholder={ph}
+      maxLength={maxlenght}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      id={id}
+      value={value}
+      className={className}
+      style={estiloInput}
+      type={type}
+      onChange={onChange}
+      onClick={onClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       />
-    )
+  )
   }
   
-  export default MyInput;
+  export default MyInput
