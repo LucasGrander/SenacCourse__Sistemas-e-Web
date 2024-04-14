@@ -26,7 +26,6 @@ interface Props{
   color?: string;
   backgroundColor?: string;
   border?: string;
-  borderBottom?: string;
   borderRadius?: string;
   boxShadow?: string;
   padding?: string;
@@ -37,7 +36,7 @@ interface Props{
   outline?: string;
 }
 
-const MyInput = ({id, className, enter, leave, onClick, onChange, onFocus, onBlur, type, value, width, height, cursor, display, justifyContent, alignItems, border, borderBottom, borderRadius, color, padding, fontSize, boxShadow, fontWeight, transition, maxlenght, ph, outline }: Props) => {
+const MyInput = ({id, className, enter, leave, onClick, onChange, onFocus, onBlur, type, value, width, height, cursor, display, justifyContent, alignItems, border, borderRadius, color, padding, fontSize, boxShadow, fontWeight, transition, maxlenght, ph, outline }: Props) => {
 
   const [hover, setHover] = useState(false)
       const handleMouseEnter = () => {
@@ -49,7 +48,7 @@ const MyInput = ({id, className, enter, leave, onClick, onChange, onFocus, onBlu
       }
       
 
-  const estiloInput: React.CSSProperties = {width, height, cursor, display, justifyContent, alignItems, backgroundColor: hover ? enter : leave, border, borderBottom, borderRadius, padding, fontSize, boxShadow, fontWeight, transition, color, outline }
+  const estiloInput: React.CSSProperties = {width, height, cursor, display, justifyContent, alignItems, backgroundColor: hover ? enter : leave, border, borderRadius, padding, fontSize, boxShadow, fontWeight, transition, color, outline }
 
   return(
       <input

@@ -3,7 +3,6 @@ import MyButton from "../components/MyButton"
 import MyInput from "../components/MyInput"
 import './Login.css'
 import { useNavigate } from "react-router-dom"
-import LoginMSG from "../components/LoginMSG"
 
 
 const Login = () => {
@@ -21,11 +20,8 @@ const Login = () => {
     //     setPassword(e.target.value)
     // }
 
-    const recep = document.getElementById("recep");
-
     const handleOnClick = () =>{
         if(user === "Lucas" && password === "1234") { 
-            recep.textContent = `Seja Bem-Vindo, ${user}`
 
             setTimeout(() =>{
                 navigate("/to-do-list");
@@ -57,6 +53,15 @@ const Login = () => {
     }
     const handleInputNotFocusTwo = () => {
         setFocusInputTwo(false)
+    }
+
+    const [text, setText] = useState(true)
+    
+    const handleOnClickLogin = () => {
+        setText(true)
+    }
+    const handleOnClickCadaster = () => {
+        setText(false)
     }
 
     return(
@@ -104,6 +109,8 @@ const Login = () => {
                     height="6.5vh"
                     color="black"
                     borderRadius= "10px"
+                    border=".1vh solid white"
+                    borderBottom=".5vh solid black"
                     fontSize= "18px"
                     fontWeight="700"
                     padding= "10px"
@@ -174,6 +181,8 @@ const Login = () => {
                     height="6.5vh"
                     color="black"
                     borderRadius= "10px"
+                    border=".1vh solid white"
+                    borderBottom=".5vh solid black"
                     fontSize= "18px"
                     fontWeight="700"
                     padding= "10px"
@@ -184,10 +193,60 @@ const Login = () => {
                     transition=".3s"
                 />
 
-                    <p id="recep">{}</p>
 
-                    <div className="overlay-form">
-                        <LoginMSG />
+
+{/* ------------------------ OVERLAY CONTAINER ------------------------- */}
+                    <div style={{transform: text ? "translateX(0vh)" : "translate(-85vh)", transition: ".6s"}} className="overlay-form">
+
+                    <div style={{display: text ? "none" : "flex"}} className="cadasterMSG-container">
+            <div className="msg">
+                <span>Já tem uma conta?</span>
+            </div>
+            <div className="btn">
+                <MyButton
+                    onClick={handleOnClickLogin}
+                    width="40vh"
+                    height="6.5vh"
+                    color="white"
+                    borderRadius= "10px"
+                    border=".1vh solid white"
+                    borderBottom=".1vh solid white"
+                    fontSize= "18px"
+                    fontWeight="700"
+                    padding= "10px"
+                    children="Login"
+                    cursor="pointer"
+                    enter="rgba(255, 255, 255, .3)"
+                    leave="transparent"
+                    transition="0.1s"
+                />
+            </div>
+        </div>
+                        
+        <div style={{display: text ? "flex" : "none"}} className="loginMSG-container">
+            <div className="msg">
+                <span>Ainda não tem uma conta?</span>
+            </div>
+            <div className="btn">
+                <MyButton
+                    onClick={handleOnClickCadaster}
+                    width="40vh"
+                    height="6.5vh"
+                    color="white"
+                    borderRadius= "10px"
+                    border=".1vh solid white"
+                    borderBottom=".1vh solid white"
+                    fontSize= "18px"
+                    fontWeight="700"
+                    padding= "10px"
+                    children="Cadastrar"
+                    cursor="pointer"
+                    enter="rgba(255, 255, 255, 0.3)"
+                    leave="transparent"
+                    transition=".1s"
+                />
+            </div>
+        </div>
                     </div>
                 </div>
 

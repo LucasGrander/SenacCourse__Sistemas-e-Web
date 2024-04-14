@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 
 .container{
@@ -12,11 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background-image: url(https://images.pexels.com/photos/4916276/pexels-photo-4916276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    overflow: hidden;
 }
 
 .content{
@@ -65,8 +60,116 @@
     height: 110%;
     position: absolute;
 
-    background-color: rgba(255, 0, 0, 0.453);
+    background-color: rgba(255, 0, 0);
     border-radius: 129px 110px 74px 110px / 20px 70px 5px 70px;
 
     /* transform: translateX(-85vh); */
+}
+
+.loginMSG-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    
+    animation: loginAppear .8s  normal forwards;
+}
+
+.loginMSG-container .msg{
+    width: 100%;
+    height: 5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginMSG-container .msg span{
+    font-size: 2.5vh;
+    font-weight: 500;
+
+    color: white;
+}
+
+.loginMSG-container .btn{
+    width: 100%;
+    height: 5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: opacitybtnrAppear 2s normal forwards;
+}
+/* ------------------------------- */
+
+.cadasterMSG-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    animation: cadasterAppear .8s  normal forwards;
+}
+
+.cadasterMSG-container .msg{
+    width: 100%;
+    height: 5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadasterMSG-container .msg span{
+    font-size: 2.5vh;
+    font-weight: 500;
+
+    color: white;
+}
+
+.cadasterMSG-container .btn{
+    width: 100%;
+    height: 5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: opacitybtnrAppear 2s normal forwards;
+}
+
+@keyframes loginAppear {
+    0%{
+        transform: translateX(-90vh);
+    }
+
+    100%{
+        transform: translateX(0vh);
+    }
+}
+
+@keyframes cadasterAppear {
+    0%{
+        transform: translateX(100vh);
+    }
+
+    100%{
+        transform: translateX(0vh);
+    }
+}
+
+@keyframes opacitybtnrAppear {
+    0%{
+       opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
 }
