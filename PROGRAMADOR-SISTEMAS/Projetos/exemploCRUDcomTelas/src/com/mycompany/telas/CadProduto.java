@@ -299,7 +299,14 @@ public class CadProduto extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         if(JOptionPane.showConfirmDialog(null, "Deseja excluir esse produto: " + "' "+ jtfDescricao.getText() + " '"  + " ?\n" + "OBS: A ação não poderá ser revertida.") == JOptionPane.YES_OPTION){
             deletar((Produto) Temp.tempObj, MemoryDataBase.ListaProdutos);
-            
+        if(Formularios.listProduto != null)
+               ((ListProduto) Formularios.listProduto).listar(MemoryDataBase.ListaProdutos);
+           
+           Temp.Limpar();
+           
+           verifyTempDados();
+           
+           proxId();
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 

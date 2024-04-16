@@ -9,7 +9,11 @@ import com.mycompany.outros.Formularios;
 import com.mycompany.outros.Temp;
 import com.mycompany.produtos.Produto;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -83,6 +87,11 @@ public class ListProduto extends javax.swing.JFrame {
         });
 
         btnFiltrar.setText("Filtrar");
+        btnFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarActionPerformed(evt);
+            }
+        });
 
         jTableProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,6 +188,48 @@ public class ListProduto extends javax.swing.JFrame {
             Formularios.cadProduto.setLocationRelativeTo(null);
         }
     }//GEN-LAST:event_jTableProdutosMouseClicked
+
+    private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
+        List<Produto> produtosFiltrados = null;
+        
+        try{
+            switch (jcbFiltro.getSelectedIndex()) {
+                 case 0:
+                        produtosFiltrados = MemoryDataBase.ListaProdutos;
+                        break;
+                 case 1:
+                        produtosFiltrados = MemoryDataBase.ListaProdutos.stream()
+                                .filter(p -> p.getId() == Integer.parseInt(jtfFiltro.getText()))
+                                .collect(Collectors.toList());
+                        break;
+                 case 2:
+                        produtosFiltrados = MemoryDataBase.ListaProdutos.stream()
+                                .filter(p -> p.getDescricao().toLowerCase().contains(jtfFiltro.getText().toLowerCase()))
+                                .collect(Collectors.toList());
+                        break;
+                 case 3:
+                        produtosFiltrados = MemoryDataBase.ListaProdutos.stream()
+                                .filter(p -> p.getPreco() >= Double.parseDouble(jtfFiltro.getText()))
+                                .collect(Collectors.toList());
+                        break;
+                 case 4:
+                        produtosFiltrados = MemoryDataBase.ListaProdutos.stream()
+                                .filter(p -> p.getPreco() <= Double.parseDouble(jtfFiltro.getText()))
+                                .collect(Collectors.toList());
+                        break;
+            }
+            
+            ArrayList<Produto> prodFilt = new ArrayList<>(produtosFiltrados);
+            listar(prodFilt);
+        }
+        
+        catch(NoSuchElementException e){
+            JOptionPane.showMessageDialog(null, "Elemento não encontrado");
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Digite um valor numérico");
+        }
+    }//GEN-LAST:event_btnFiltrarActionPerformed
 
     /**
      * @param args the command line arguments
