@@ -9,6 +9,10 @@ import com.mycompany.outros.Forms;
 import com.mycompany.outros.Temporarios;
 import com.mycompany.veiculo.Veiculo;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,15 +26,17 @@ public class ListVeiculos extends javax.swing.JFrame {
      */
     public ListVeiculos() {
         initComponents();
-        MemoryDataBase.veiculosExemplos();
+//        MemoryDataBase.veiculosExemplos();
         listar(MemoryDataBase.listaVeiculos);
         verifyFiltros();
+        setLocationRelativeTo(null);
         
     }
     
      public void listar(ArrayList<Veiculo> lista){
          DefaultTableModel defaultTableModel = (DefaultTableModel) jtableList.getModel();
          
+         defaultTableModel.setRowCount(0);
          for(Veiculo v : lista){
              defaultTableModel.addRow(new Object[] {v.getId(), v.getChassi(), v.getMarca(), v.getNome(), v.getPreco()});
          }
@@ -63,11 +69,33 @@ public class ListVeiculos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtableList = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jcbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "ID", "CHASSI", "MARCA", "NOME", "PREÇO > QUE", "PREÇO < QUE " }));
+        jcbFiltro.setOpaque(false);
+        jcbFiltro.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbFiltroItemStateChanged(evt);
+            }
+        });
+        jcbFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbFiltroActionPerformed(evt);
+            }
+        });
+
+        jtfFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfFiltroActionPerformed(evt);
+            }
+        });
 
         btnFiltrar.setText("Filtrar");
+        btnFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarActionPerformed(evt);
+            }
+        });
 
         jtableList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,6 +168,8 @@ public class ListVeiculos extends javax.swing.JFrame {
     private void jtableListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtableListMouseClicked
         if (evt.getClickCount() == 2){
             Veiculo veiculo = new Veiculo();
+            
+            
                 
             veiculo.setId(Integer.parseInt(String.valueOf(jtableList.getValueAt(jtableList.getSelectedRow(), 0))));
             veiculo.setChassi(String.valueOf(jtableList.getValueAt(jtableList.getSelectedRow(), 1)));
@@ -157,6 +187,69 @@ public class ListVeiculos extends javax.swing.JFrame {
                 Forms.CadVeiculos.setExtendedState(NORMAL);
         }
     }//GEN-LAST:event_jtableListMouseClicked
+
+    
+    private void jtfFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfFiltroActionPerformed
+
+    }//GEN-LAST:event_jtfFiltroActionPerformed
+
+    private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
+        List<Veiculo> veiculosFiltrados =  null;
+        
+        try {
+            switch (jcbFiltro.getSelectedIndex()){
+                case 0:
+                    veiculosFiltrados =  MemoryDataBase.listaVeiculos;
+                    break;
+                case 1:
+                    veiculosFiltrados = MemoryDataBase.listaVeiculos.stream()
+                            .filter(v -> v.getId() == Integer.parseInt(jtfFiltro.getText()))
+                            .collect(Collectors.toList());
+                    break;
+                case 2:
+                    veiculosFiltrados = MemoryDataBase.listaVeiculos.stream()
+                            .filter(v -> v.getChassi().toLowerCase().contains(jtfFiltro.getText()))
+                            .collect(Collectors.toList());
+                    break;
+                    case 3:
+                    veiculosFiltrados = MemoryDataBase.listaVeiculos.stream()
+                            .filter(v -> v.getMarca().toLowerCase().contains(jtfFiltro.getText()))
+                            .collect(Collectors.toList());
+                    break;
+                    case 4:
+                    veiculosFiltrados = MemoryDataBase.listaVeiculos.stream()
+                            .filter(v -> v.getNome().toLowerCase().contains(jtfFiltro.getText()))
+                            .collect(Collectors.toList());
+                    break;
+                    case 5:
+                    veiculosFiltrados = MemoryDataBase.listaVeiculos.stream()
+                            .filter(v -> v.getPreco() >= Double.parseDouble(jtfFiltro.getText()))
+                            .collect(Collectors.toList());
+                    break;
+                                        case 6:
+                    veiculosFiltrados = MemoryDataBase.listaVeiculos.stream()
+                            .filter(v -> v.getPreco() <= Double.parseDouble(jtfFiltro.getText()))
+                            .collect(Collectors.toList());
+                    break;
+            }
+            
+            ArrayList<Veiculo> veicFilt = new ArrayList<>(veiculosFiltrados);
+            listar(veicFilt);
+            
+        } catch (NoSuchElementException e) {
+            JOptionPane.showMessageDialog(null, "Elemento não encontrado!");
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Digite um valor numérico!");
+        }
+    }//GEN-LAST:event_btnFiltrarActionPerformed
+
+    private void jcbFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbFiltroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbFiltroActionPerformed
+
+    private void jcbFiltroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbFiltroItemStateChanged
+    verifyFiltros();
+    }//GEN-LAST:event_jcbFiltroItemStateChanged
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,7 @@
  */
 package com.mycompany.telas;
 
+import com.mycompany.database.MemoryDataBase;
 import com.mycompany.outros.Forms;
 import javax.swing.JFrame;
 
@@ -19,6 +20,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        MemoryDataBase.veiculosExemplos();
     }
 
     /**

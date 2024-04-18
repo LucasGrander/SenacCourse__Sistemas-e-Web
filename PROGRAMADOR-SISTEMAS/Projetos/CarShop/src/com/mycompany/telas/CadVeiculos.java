@@ -25,6 +25,9 @@ public class CadVeiculos extends javax.swing.JFrame {
         jtfChassi.requestFocus();
         setarID();
         jtfId.setEnabled(false);
+        verifyDadosTemp();
+        
+        setLocationRelativeTo(null);
     }
     
     private void setarID(){
@@ -71,15 +74,47 @@ public class CadVeiculos extends javax.swing.JFrame {
             btnSave.setText("Alterar");
             btnDelete.setVisible(true);
             btnCancel.setVisible(true);
-            setTitle(Alteração de produto);
+            setTitle("Alteração de veículo");
         }
         else{
         btnSave.setText("Salvar");
             btnDelete.setVisible(false);
             btnCancel.setVisible(false);
+            setTitle("Cadastro de produto");
     }
     }
     
+    private void alterar (Veiculo v, String chassi, String marca, String nome, String preco, ArrayList<Veiculo> lista){
+        try{
+            Veiculo veicAlt =  new Veiculo(v.getId(), chassi, marca, nome, Double.parseDouble(preco));
+            
+            int i = lista.indexOf(Temporarios.tempObj);
+            
+            lista.set( i, veicAlt);
+            JOptionPane.showMessageDialog(null, "Veiculo " + v.getNome() + " alterado com Sucesso.");
+            jtfChassi.setText("");
+            jtfMarca.setText("");
+            jtfNome.setText("");
+            jtfPreco.setText("");
+            
+            Forms.CadVeiculos.dispose();
+            
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "O preço deve conter um valor numerico");
+        }
+    }
+     
+    private void delete (Veiculo v, ArrayList<Veiculo> lista ){
+        lista.remove(v);
+        JOptionPane.showMessageDialog (null, "produto "  + v.getNome() +  " Excluido com sucesso"  );
+         jtfChassi.setText("");
+            jtfMarca.setText("");
+            jtfNome.setText("");
+            jtfPreco.setText("");
+            
+               Forms.CadVeiculos.dispose();
+    }
+          
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -227,11 +262,23 @@ public class CadVeiculos extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfIdActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        Forms.CadVeiculos.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, " Deseja excluir o veiculo " + jtfNome.getText() + "?"  ) == JOptionPane.YES_OPTION){
+            delete((( Veiculo ) Temporarios.tempObj), MemoryDataBase.listaVeiculos);
+            
+            if(Forms.ListVeiculos != null)
+                ((ListVeiculos) Forms.ListVeiculos).listar(MemoryDataBase.listaVeiculos);
+            
+            Temporarios.limpar();  
+            
+           verifyDadosTemp();
+           
+           setarID();
+           
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -242,9 +289,20 @@ public class CadVeiculos extends javax.swing.JFrame {
                 ((ListVeiculos) Forms.ListVeiculos).listar(MemoryDataBase.listaVeiculos);
             
             Temporarios.limpar();
+            
+            verifyDadosTemp();
         }
         else{
+            alterar((Veiculo) Temporarios.tempObj, jtfChassi.getText(), jtfMarca.getText(), jtfNome.getText(), jtfPreco.getText().replace("," , "."), MemoryDataBase.listaVeiculos);
             
+            if(Forms.ListVeiculos != null);
+                ((ListVeiculos) Forms.ListVeiculos).listar(MemoryDataBase.listaVeiculos);
+//            
+//            Temporarios.limpar();
+//            
+//            verifyDadosTemp();
+//            
+//            setarID();
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
