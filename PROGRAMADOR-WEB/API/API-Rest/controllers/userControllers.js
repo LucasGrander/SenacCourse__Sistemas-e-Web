@@ -37,5 +37,31 @@ export const updateUsers = (req, res) => {
 
     const {nome, id } = req.body;
 
-    db.query
+    db.query(sql, [nome, id], (err, data) => {
+        if(err){
+            console.log("Erro ao processar a requisição")
+            return res.status(500).json(err)
+        }
+        else{
+            console.log("Dados do usuário alterados com sucesso")
+            return res.status(200).json(data)
+        }
+    })
+}
+
+export const deleteUsers = (req, res) => {
+    const sql = "delete from usuario where id = ?";
+
+    const { id } = req.query;
+
+    db.query(sql, [id], (err, data) => {
+        if(err){
+            console.log("Erro ao processar a requisição")
+            return res.status(500).json(err)
+        }
+        else{
+            console.log("Dados do usuário remo com sucesso")
+            return res.status(200).json(data)
+        }
+    })
 }

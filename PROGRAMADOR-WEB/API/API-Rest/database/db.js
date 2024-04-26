@@ -5,7 +5,7 @@ export const db = mysql.createConnection({
     port: "3306",
     user: "root",
     password:"admin",
-    database: "projeto_semeando_campeoes"
+    database: "db_exemplo"
 })
 
 db.connect((err) => {
